@@ -1,0 +1,26 @@
+
+div {
+	float:left;
+}
+
+form {
+	text-align: left;
+}
+
+legend {
+	font-weight: bold;
+}
+
+#form1 {
+	margin: auto;
+	float: left;
+}
+
+#form2 {
+	float:left;
+}
+
+#form3 { 
+	margin: auto;
+	float: left;
+}

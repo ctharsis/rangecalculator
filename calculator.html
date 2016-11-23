@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="stylesheet.css" type="text/css" rel="stylesheet" />
+		<script src="data/values.js" type="text/javascript"></script>
+		<script src="data/masteryData.js" type="text/javascript"></script>
+		<script src="script.js" type="text/javascript"></script>
+		<title>Maplestory Range Calculator</title>
+	</head>
+	<body>
+		<!-- equipment attack -->
+		<form id="form1">
+			<fieldset id="equipAtt">
+				<legend>Equip M/Attack:</legend>
+				Weapon: <input id="weapon" type="text" value="0"><br>
+				Emblem: <input id="emblem" type="text" value="0"><br>
+				Secondary: <input id="secondary" type="text" value="0"><br>
+				Ring1: <input id="ring1" type="text" value="0"><br>
+				Ring2: <input id="ring2" type="text" value="0"><br>
+				Ring3: <input id="ring3" type="text" value="0"><br>
+				Ring4: <input id="ring4" type="text" value="0"><br>
+				Pendant1: <input id="pendant1" type="text" value="0"><br>
+				Pendant2: <input id="pendant2" type="text" value="0"><br>
+				Earrings: <input id="earrings" type="text" value="0"><br>
+				Shoulder: <input id="shoulder" type="text"value="0"><br>
+				Hat: <input id="hat" type="text" value="0"><br>
+				Top: <input id="top" type="text" value="0"><br>
+				Bottom: <input id="bottom" type="text" value="0"><br>
+				Eye: <input id="eye" type="text" value="0"><br>
+				Face: <input id="face" type="text" value="0"><br>
+				Cape: <input id="cape" type="text" value="0"><br>
+				Gloves: <input id="gloves" type="text" value="0"><br>
+				Boots: <input id="boots" type="text" value="0"><br>
+				Belt: <input id="belt" type="text" value="0"><br>
+				Heart: <input id="heart" type="text" value="0"><br>
+				Badge: <input id="badge" type="text" value="0"><br>
+				Totem1: <input id="totem1" type="text" value="0"><br>
+				Totem2: <input id="totem2" type="text" value="0"><br>
+				Totem3: <input id="totem3" type="text" value="0"><br>
+				Medal: <input id="medal" type="text" value="0"><br>
+				Pocket: <input id="pocket" type="text" value="0"><br>
+				Title: <input id="title" type="text" value="0"><br>
+			</fieldset>
+		</form>
+		<form id="form2">
+			<!-- choose your class -->
+			<fieldset>
+				<legend>Class</legend>
+				<select id="class">
+					<option value="hero1hs">Hero (1H sword)</option>
+					<option value="kinesis">Kinesis</option>
+					<option value="phantom">Phantom</option>
+					<option value="shade">Shade</option>
+				</select>
+			</fieldset>
+			<!-- main and sub stat-->
+			<fieldset>
+				<legend>Stats (STR/DEX/INT/LUK):</legend>
+				Main: <input id="mainstat" type="text"><br>
+				Sub: <input id="substat" type="text"><br>
+			</fieldset>
+			<!-- set bonus attack -->
+			<fieldset id="setbonusAtt">
+				<legend>Set Bonus Attack:</legend>
+				<p>Set bonuses such as Gollux/CRA/Others</p>
+				set1: <input id="set1" type="text" value="0"><br>
+				set2: <input id="set2" type="text" value="0"><br>
+				set3: <input id="set3" type="text" value="0"><br>
+			</fieldset>
+			<!-- other sources of attack-->
+			<fieldset id="otherAtt">
+				<legend>Other sources of Attack:</legend>
+				Inner Ability: <input id="" type="text" value="0"><br>
+				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="text" value="0"><br>
+				<p>
+					Enter the <strong>higher</strong> value between Blessing of the Fairy and Empress' Blessing.
+					<br>
+					0 if you do not have either
+				</p>
+			</fieldset>
+			<!-- weapon/secondary/emblem %att-->	
+			<fieldset id="percentAtt">
+				<legend> % Attack </legend>
+				Weapon: <input id="wepPercentAtt" type="text" value="0"><br>
+				Secondary: <input id="secondPercentAtt" type="text" value="0"><br>
+				Emblem: <input id="emblemPercentAtt" type="text" value="0"><br>
+			</fieldset>			
+			<!-- link skills -->
+			<fieldset>
+				<legend>Link Skills</legend>
+				<form>
+					<legend>Demon Avenger</legend>
+					<label><input id="DA0" type="radio" name="size" value="0" checked />None</label>
+					<label><input id="DA1" type="radio" name="size" value="1" />Level 1</label>
+					<label><input id="DA2" type="radio" name="size" value="2" />Level 2</label>
+					<label><input id="DA3" type="radio" name="size" value="3" />Level 3</label>
+				</form>
+				<form>
+					<legend>Kanna</legend>
+					<label><input id="K0" type="radio" name="size" value="0" checked />None</label>
+					<label><input id="K1" type="radio" name="size" value="1" />Level 1</label>
+					<label><input id="K2" type="radio" name="size" value="2" />Level 2</label>
+				</form>
+				<form>
+					<legend>Hayato</legend>
+					<label><input id="H1" type="checkbox" name="size" value="1" unchecked />Level 1</label>
+				</form>
+			</fieldset>
+		</form>
+		<form id="form3">
+			<!-- reboot or not reboot-->
+			<fieldset>
+				<legend>Other</legend>
+				<label><input id="nonReboot" type="radio" name="size" value="0" checked />Non-Reboot</label>
+				<label><input id="reboot" type="radio" name="size" value="1" />Reboot</label>
+			</fieldset>	
+			<fieldset>
+				<legend>Hyper Stat % Damage</legend>
+					% Damage <input id="hyperDmg" type="text" value="0"><br>
+			</fieldset>
+		</form>
+		<div id="info">
+			<button id="calculate">Calculate</button>	
+			<h3>Assumptions:</h3>
+			<ul>
+				<li>At least level 140</li>
+				<li>All Skill Points used</li>
+				<li>% Attack and % Damage from skills included</li>
+				<li><strong>Character cards are NOT included</strong></li>
+			</ul>
+			<h3>Notes</h3>
+			<ul>
+				<li>All Reboot Characters have a 'Hidden' 5 Attack/6 Magic Attack</li>
+				<li>All fields must have a value, if you do not have a number, put 0</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Your range is: <span id=lowerRange></span> ~ <span id=upperRange><span></h2>
+		</div>
+		
+	</body>
+</html>
+
