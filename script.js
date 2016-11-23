@@ -1,7 +1,5 @@
 (function(){
 
-
-
 	window.onload = function () {
 		document.getElementById('calculate').onclick = calcRange;
 	};
@@ -11,49 +9,32 @@
 // math.round = round
 
 	function calcRange () {
-		finalUpperRange();
-		//lowerRange();
-		//document.getElementById('upperRange').innerHTML = ;
-	}
-
-	// final upper range
-	// includes % damage from hyper damage and link skills (DA/kanna)
-	function finalUpperRange() {
-		// hyper stat % damage
-		var initUpRange = initialUpperRange();
-		var hyperDmg = parseInt(document.getElementById('hyperDmg').value);
-		var upRangeFinal = Math.floor(initUpRange * (1 + hyperDmg/100));
-		document.getElementById('upperRange').innerHTML = upRangeFinal;
+		var upRange = upperRange();
+		var lowRange = lowerRange();
+		document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
 	}
 
 	// the inital upper range before any % damage or % attack
-	function initialUpperRange () {
+	function upperRange () {
 		var statValue = statVal();
 		var totalAtt = totalATT();
+		var totalDmg = totalDMG();
+
 		var className = document.getElementById('class').value;
 		var wepType = classWep[className];
 		var multiplier = wepMult[wepType];
-		var initUpRange = multiplier * statValue * totalAtt / 100;
-		return initUpRange;
+		var initUpRange = Math.round(multiplier * statValue * totalAtt / 100);
+		return Math.floor(initUpRange * (1+totalDmg/100));
 	}
 
 	// calculate the lowerRange
-	/*
 	function lowerRange () {
 		var className = document.getElementById('class').value;
 		var upRange = upperRange();
 		var masteryValue = masteryData[className];
-		var downRangeFinal = Math.ceil(upRange * masteryValue);
-		document.getElementById('lowerRange').innerHTML = downRangeFinal;
+		var lowerRangeFinal = Math.round(upRange * masteryValue); //NOT SURE ABOUT ROUNDING
+		return lowerRangeFinal;
 	} 
-
-	//writing
-	function linkSkillpDmg () {
-		var totalpDmg = 0;
-		if (document.getElementById('DA1')) {
-			totalpDmg = 0;
-		}
-	} */
 
 	// calculate the stat value
 	function statVal () {
@@ -72,32 +53,78 @@
 		var equipAtt = document.getElementById('equipAtt');
 		var equipName = equipAtt.getElementsByTagName('input');
 		for (var i = 0; i < equipName.length; i++) {
-			totalATT += parseInt(equipName[i].value);
+			totalATT = totalATT + parseInt(equipName[i].value);
 		}
+
 		var setBonusAtt = document.getElementById('setbonusAtt');
 		var setBonus = setBonusAtt.getElementsByTagName('input');
 		for (var i = 0; i < setBonus.length; i++) {
-			totalATT += parseInt(setBonus[i].value);
+			totalATT = totalATT + parseInt(setBonus[i].value);
 		}
-		var otherAtt = document.getElementById('otherAtt');
-		var att = otherAtt.getElementsByTagName('input');
-		for (var i = 0; i < att.length; i++) {
-			totalATT += parseInt(att[i].value);
-		}
+
 		// total % att (emblem/secondary/weapon);
 		var percentAtt = document.getElementById('percentAtt');	
 		var pAtt = percentAtt.getElementsByTagName('input');
-		for (var i =0; i < pAtt.length; i++) {
-			totalPercentATT += parseInt(pAtt[i].value);
+		for (var i = 0; i < pAtt.length; i++) {
+			totalPercentATT = totalPercentATT + parseInt(pAtt[i].value);
 		}
 
+		// class passive skill att
+		totalATT = totalATT + passiveStat[document.getElementById('class').value].att;
+
+		// Inner Ability
+		totalATT = totalATT + parseInt(document.getElementById('innerAbility').value);	
+
+		// Att per 10 level
+		totalATT = totalATT + Math.floor(parseInt(document.getElementById('charLevel').value)/10) * parseInt(document.getElementById('attPer10').value);
+
+		// Will of the Alliance
+		if (document.getElementById('alliance').checked) {
+			totalATT = totalATT + 5;
+		}
+
+		// Blessing
+		totalATT = totalATT + parseInt(document.getElementById('blessing').value);	
+		
 		// hayato link
 		if (document.getElementById('H1').checked) {
-			totalATT += 5;
+			totalATT = totalATT + 5;
 		}
+
+		// hidden reboot att
+		totalATT = totalATT + (5 * parseInt(document.querySelector('input[name = "reboot"]:checked').value)); 
+
 		// round down
 		var totalWA = Math.floor((totalATT * (1 + totalPercentATT / 100)));
+		
 		return totalWA;
 	}
+
+	// grabs link, equip, hyper, and reboot (if checked) damage and returns the sum.
+	function totalDMG(){
+		var linkDmg = 0;
+		var equipDmg = 0;
+		var hyperDmg = 0;
+		var passiveSkillDmg = 0;
+		var rebootDmg = 0;
+
+		hyperDmg = parseInt(document.getElementById('hyperDmg').value);
+
+		passiveSkillDmg = passiveStat[document.getElementById('class').value].pDmg;
+
+		var DAlink = parseInt(document.querySelector('input[name = "DAlink"]:checked').value);
+		var Kannalink = parseInt(document.querySelector('input[name = "Kannalink"]:checked').value);
+		linkDmg = linkDmg + linkSkills["demonAvenger" + DAlink].pDmg + linkSkills["kanna" + Kannalink].pDmg;
+		
+		var equips = document.getElementById('equippDmg').getElementsByTagName('input');	
+		for (var i =0; i < equips.length; i++) {
+			equipDmg = equipDmg + parseInt(equips[i].value);
+		}
+
+		rebootDmg = Math.floor((parseInt(document.getElementById('charLevel').value / 2)) * parseInt(document.querySelector('input[name = "reboot"]:checked').value));
+		
+		return linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
+	}
+
 
 })();
