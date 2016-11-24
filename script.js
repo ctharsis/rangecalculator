@@ -69,6 +69,9 @@
 			totalPercentATT = totalPercentATT + parseInt(pAtt[i].value);
 		}
 
+		// class passive skill %att
+		totalPercentATT = totalPercentATT + passiveStat[document.getElementById('class').value].pAtt;
+
 		// class passive skill att
 		totalATT = totalATT + passiveStat[document.getElementById('class').value].att;
 
@@ -86,6 +89,9 @@
 		// Blessing
 		totalATT = totalATT + parseInt(document.getElementById('blessing').value);	
 		
+		// Other
+		totalATT = totalATT + parseInt(document.getElementById('other').value);	
+
 		// hayato link
 		if (document.getElementById('H1').checked) {
 			totalATT = totalATT + 5;
