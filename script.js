@@ -11,7 +11,9 @@
 	function calcRange () {
 		var upRange = upperRange();
 		var lowRange = lowerRange();
-		document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
+		//var onepercent = percentStat();
+		//document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
+		document.getElementById('oneper').innerHTML = onepercent;
 	}
 
 	// the inital upper range before any % damage or % attack
@@ -42,6 +44,13 @@
 		var substat = parseInt(document.getElementById('substat').value);
 		var statValue = (mainstat * 4) + substat;
 		return statValue;
+	}
+
+	// 1% of your stat = 
+	// calculate from the base? not from total
+	function percentStat () {
+		var mainstat = parseInt(document.getElementById('mainstat').value);
+		return (0.01 * mainstat);
 	}
 
 	// calculate the total m/attack from equips, set bonuses and other sources
@@ -131,6 +140,5 @@
 		
 		return linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
 	}
-
 
 })();
