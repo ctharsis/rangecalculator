@@ -12,8 +12,8 @@
 		var upRange = upperRange();
 		var lowRange = lowerRange();
 		//var onepercent = percentStat();
-		//document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
-		document.getElementById('oneper').innerHTML = onepercent;
+		document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
+		//document.getElementById('oneper').innerHTML = onepercent;
 	}
 
 	// the inital upper range before any % damage or % attack
