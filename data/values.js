@@ -1,14 +1,17 @@
 // weapon multiplier values
+// tl;dr explorer warrior and mages have an increased multipliers
+// oneHandSword original multiplier : 1.2
+// 2h axe original multiplier 1.34 
 var wepMult = new Object();
-wepMult["oneHandSword"] = 1.30; // explorer 1h might be 1.3, others 1.2 (maybe)
+wepMult["oneHandSword"] = 1.30; // <--- explorer multiplier(?)
 wepMult["twoHandSword"] = 1.34;
-wepMult["twoHandSwordExplorer"] = 1.44; // tl;dr explorer warrior and mages have an increased multipliers
-wepMult["oneHandAxe"] = 1.30; // explorer 1h might be 1.3, others 1.2 (maybe)
-wepMult["twoHandAxe"] = 1.44; // original: 1.34  
+wepMult["twoHandSwordExplorer"] = 1.44;
+wepMult["oneHandAxe"] = 1.30; // <--- explorer multiplier (?)
+wepMult["twoHandAxe"] = 1.44;  // <--- explorer multiplier (?)
 wepMult["oneHandBlut"] = 1.20;
 wepMult["twoHandBlunt"] = 1.34;
 wepMult["spear"] = 1.49;
-wepMult["polearm"] = 1.49; // maplewikia also wrong about this
+wepMult["polearm"] = 1.49; // <--- explorer multiplier (?)
 wepMult["wand"] = 1.00;
 wepMult["staff"] = 1.00;
 wepMult["wandExplorer"] = 1.20;
@@ -69,6 +72,7 @@ linkSkills["kanna2"] = {att:0, pDmg:10};
 linkSkills["hayato"] = {att:5, pDmg:0};
 
 //access other stats by passiveStat[""].att etc.
+//passiveStat[""] = {att:0, pAtt:0, pDmg:0};
 var passiveStat = new Object();
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bishopwand"] = {att:40, pAtt:0, pDmg:0};
@@ -92,4 +96,3 @@ passiveStat["nightlord"] = {att:70, pAtt:0, pDmg:0};
 passiveStat["phantom"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["shade"] = {att:20, pAtt:0, pDmg:20};
 
-//passiveStat[""] = {att:0, pAtt:0, pDmg:0};
