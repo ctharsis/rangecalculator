@@ -16,7 +16,9 @@
 - Shade/Eunwol
 
 ## How to use:
-1. Click on the green "clone or download zip" button, and download the files as a zip. [[https://puu.sh/ssS7x/c7fded7742.png|alt=zip]]
+1. Click on the green "clone or download zip" button, and download the files as a zip.
+
+  ![zip](https://puu.sh/ssS7x/c7fded7742.png)
 2. Navigate to your downloads folder, find the file "rangecalculator-master.zip", right click it and extract the files.
 3. Open up your web browser, open a new tab, and press control + o. (alternatively, you can click file > open file on the top left [if your browser has that])
 4. Navigate to where you extracted the files earlier, and select "calculator.html". Open it.
