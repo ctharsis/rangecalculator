@@ -1,6 +1,8 @@
 var masteryData = new Object();
 masteryData["bishopstaff"] = 0.95;
 masteryData["bishopwand"] = 0.95;
+masteryData["drkSpear"] = 0.9; 
+masteryData["drkPolearm"] = 0.9; 
 masteryData["evanstaff"] = 0.95;
 masteryData["evanwand"] = 0.95;
 masteryData["firepoisonstaff"] = 0.95;
@@ -11,6 +13,7 @@ masteryData["hero1hs"] = 0.9;
 masteryData["hero2hs"] = 0.9; 
 masteryData["icelightningstaff"] = 0.95;
 masteryData["icelightningwand"] = 0.95;
+//masteryData["kaiser"] = 0.9; //--
 masteryData["kanna"] = 0.9;
 masteryData["kinesis"] = 0.9;
 masteryData["luminous"] = 0.95;
