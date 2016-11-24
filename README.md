@@ -1,19 +1,19 @@
 # Maplestory 1 Clean Range Calculator
 
 ## Currently supported classes:
--Bishop
--Dark Knight
--Evan
--Fire/Poison Archmage
--Hero
--Ice/Lightning Archmage
--Kaiser
--Kanna
--Kinesis
--Luminous
--Night Lord
--Phantom
--Shade/Eunwol
+- Bishop
+- Dark Knight
+- Evan
+- Fire/Poison Archmage
+- Hero
+- Ice/Lightning Archmage
+- Kaiser
+- Kanna
+- Kinesis
+- Luminous
+- Night Lord
+- Phantom
+- Shade/Eunwol
 
 ## How to use:
 1. Click on the green "clone or download zip" button, and download the files as a zip. [[https://puu.sh/ssS7x/c7fded7742.png|alt=zip]]
@@ -26,16 +26,16 @@
 8. Click calculate. It should match up with what you see in-game. Now you can experiment to see how your range changes if you swap out equipment, or if say you get another star on a tyrants piece. Boss Damage, Crit and IED calculations will come later.
 
 ## To-Do list
--Finish adding every class
--Boss Damage
--Crit
--IED
--Character Cards
+- Finish adding every class
+- Boss Damage
+- Crit
+- IED
+- Character Cards
 
 ## Potential features
--Deploy onto a site for easier usage
-  -Save/Load/Import/Export feature
--Compare feature
--Skill damage calculation and theoretical DPS
-  -Attack speed inclusion
--Calculations for a range increase per 1% stat
+- Deploy onto a site for easier usage
+  - Save/Load/Import/Export feature
+- Compare feature
+- Skill damage calculation and theoretical DPS
+  - Attack speed inclusion
+- Calculations for a range increase per 1% stat
