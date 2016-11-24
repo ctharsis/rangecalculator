@@ -1,13 +1,14 @@
 // weapon multiplier values
 var wepMult = new Object();
-wepMult["oneHandSword"] = 1.30; //Maplewikia is wrong, at least for hero.
-wepMult["twoHandSword"] = 1.34;
-wepMult["oneHandAxe"] = 1.20;
-wepMult["twoHandAxe"] = 1.34;
+wepMult["oneHandSword"] = 1.30; // explorer 1h might be 1.3, others 1.2 (maybe)
+wepMult["twoHandSword"] = 1.44; // explorer 2h might be 1.44, others 1.34 (maybe)
+wepMult["kaiser2h"] = 1.7; // ************ KAISER
+wepMult["oneHandAxe"] = 1.30; // explorer 1h might be 1.3, others 1.2 (maybe)
+wepMult["twoHandAxe"] = 1.44; // original: 1.34  
 wepMult["oneHandBlut"] = 1.20;
 wepMult["twoHandBlunt"] = 1.34;
 wepMult["spear"] = 1.49;
-wepMult["polearm"] = 1.00;
+wepMult["polearm"] = 1.49; // maplewikia also wrong about this
 wepMult["wand"] = 1.00;
 wepMult["staff"] = 1.00;
 wepMult["wandExplorer"] = 1.20;
@@ -34,18 +35,21 @@ wepMult["psylimiter"] = 1.20;
 
 // weapons that the classes use
 var classWep = new Object();
-classWep["bishopstaff"] = "staffExplorer"
-classWep["bishopwand"] = "wandExplorer"
+classWep["bishopstaff"] = "staffExplorer";
+classWep["bishopwand"] = "wandExplorer";
+classWep["drkPolearm"] = "polearm";
+classWep["drkSpear"] = "spear";
 classWep["evanstaff"] = "staff";
 classWep["evanwand"] = "wand";
-classWep["firepoisonstaff"] = "staffExplorer"
-classWep["firepoisonwand"] = "wandExplorer"
+classWep["firepoisonstaff"] = "staffExplorer";
+classWep["firepoisonwand"] = "wandExplorer";
 classWep["hero1ha"] = "oneHandAxe";
 classWep["hero2ha"] ="twoHandAxe"; 
 classWep["hero1hs"] = "oneHandSword";
 classWep["hero2hs"] ="twoHandSword";
-classWep["icelightningstaff"] = "staffExplorer"
-classWep["icelightningwand"] = "wandExplorer"
+classWep["icelightningstaff"] = "staffExplorer";
+classWep["icelightningwand"] = "wandExplorer";
+classWep["kaiser"] = "kaiser2h";
 classWep["kanna"] = "fan";
 classWep["kinesis"] = "psylimiter";
 classWep["luminous"] = "shiningRod";
@@ -68,6 +72,8 @@ linkSkills["hayato"] = {att:5, pDmg:0};
 var passiveStat = new Object();
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bishopwand"] = {att:40, pAtt:0, pDmg:0};
+passiveStat["drkPolearm"] = {att:30, pAtt:0, pDmg:0};
+passiveStat["drkSpear"] = {att:30, pAtt:0, pDmg:5};
 passiveStat["evanstaff"] = {att:70, pAtt:35, pDmg:0};
 passiveStat["evanwand"] = {att:70, pAtt:35, pDmg:0};
 passiveStat["firepoisonstaff"] = {att:40, pAtt:50, pDmg:0};
@@ -78,7 +84,12 @@ passiveStat["hero1hs"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["hero2hs"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["icelightningstaff"] = {att:40, pAtt:50, pDmg:0};
 passiveStat["icelightningwand"] = {att:40, pAtt:50, pDmg:0};
+<<<<<<< HEAD
 passiveStat["kanna"] = {att:30, pAtt:0, pDmg:60};
+=======
+passiveStat["kaiser"] = {att:50, pAtt:30, pDmg:0};
+passiveStat["kanna"] = {att:30, pAtt:0, pDmg:30};
+>>>>>>> origin/master
 passiveStat["kinesis"] = {att:50, pAtt:0, pDmg:0};
 passiveStat["luminous"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["nightlord"] = {att:70, pAtt:0, pDmg:0};
