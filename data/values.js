@@ -84,12 +84,8 @@ passiveStat["hero1hs"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["hero2hs"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["icelightningstaff"] = {att:40, pAtt:50, pDmg:0};
 passiveStat["icelightningwand"] = {att:40, pAtt:50, pDmg:0};
-<<<<<<< HEAD
 passiveStat["kanna"] = {att:30, pAtt:0, pDmg:60};
-=======
 passiveStat["kaiser"] = {att:50, pAtt:30, pDmg:0};
-passiveStat["kanna"] = {att:30, pAtt:0, pDmg:30};
->>>>>>> origin/master
 passiveStat["kinesis"] = {att:50, pAtt:0, pDmg:0};
 passiveStat["luminous"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["nightlord"] = {att:70, pAtt:0, pDmg:0};
