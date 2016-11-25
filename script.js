@@ -2,6 +2,7 @@
 
 	window.onload = function () {
 		document.getElementById('calculate').onclick = calcRange;
+	//	document.getElementById('class').onchange = xenon;
 	};
 
 // math.floor = round down
@@ -44,6 +45,23 @@
 		var substat = parseInt(document.getElementById('substat').value);
 		var statValue = (mainstat * 4) + substat;
 		return statValue;
+	}
+
+	// getting xenon stat value stuff
+	function xenon () {
+		if (document.getElementById('class').value = 'xenon') {
+			document.getElementById('mainstat').style.display = 'none';
+			document.getElementById('substat').style.display = 'none';
+			document.getElementById('main').style.display = 'none';
+			document.getElementById('sub').style.display = 'none';				
+	
+			document.getElementById('xstr').style.display = '';
+			document.getElementById('xstr1').style.display = '';
+			document.getElementById('xdex').style.display = '';
+			document.getElementById('xdex1').style.display = '';
+			document.getElementById('xluk').style.display = '';
+			document.getElementById('xluk1').style.display = '';
+		}
 	}
 
 	// 1% of your stat = 

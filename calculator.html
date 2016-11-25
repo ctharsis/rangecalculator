@@ -77,13 +77,18 @@
 					<option value="nightlord">Night Lord</option>
 					<option value="phantom">Phantom</option>
 					<option value="shade">Shade</option>
+				<!--<option value="xenon">Xenon</option> -->
 				</select>
 			</fieldset>
 			<!-- main and sub stat-->
 			<fieldset>
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
-				Main: <input id="mainstat" type="text"><br />
-				Sub: <input id="substat" type="text"><br />
+				<label id="main">Main: <input id="mainstat" type="text"><br /></label>
+				<label id="sub">Sub: <input id="substat" type="text"><br /></label>
+				<!-- Xenon stuff -->
+				<label id="xstr" style="display:none">STR:<input id="xstr1" type="text" style="display:none"><br /></label>
+				<label id="xdex" style="display:none">DEX:<input id="xdex1" type="text" style="display:none"><br /></label>
+				<label id="xluk" style="display:none">LUK:<input id="xluk1" type="text" style="display:none"><br /></label>
 			</fieldset>
 			<!-- set bonus attack -->
 			<fieldset id="setbonusAtt">
