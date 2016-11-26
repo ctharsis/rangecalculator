@@ -38,6 +38,7 @@ wepMult["psylimiter"] = 1.20;
 
 // weapons that the classes use
 var classWep = new Object();
+classWep["dreanbuster"] = "soulShooter"; // angelic buster hue hue hue
 classWep["bishopstaff"] = "staffExplorer";
 classWep["bishopwand"] = "wandExplorer";
 classWep["darkknightpolearm"] = "polearm";
@@ -74,6 +75,7 @@ linkSkills["hayato"] = {att:5, pDmg:0};
 //access other stats by passiveStat[""].att etc.
 //passiveStat[""] = {att:0, pAtt:0, pDmg:0};
 var passiveStat = new Object();
+passiveStat["dreanbuster"] = {att:90, pAtt:0, pDmg:35};
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bishopwand"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["darkknightpolearm"] = {att:30, pAtt:0, pDmg:0};

@@ -1,4 +1,5 @@
 var masteryData = new Object();
+masteryData["dreanbuster"] = 0.95;
 masteryData["bishopstaff"] = 0.95;
 masteryData["bishopwand"] = 0.95;
 masteryData["drkPolearm"] = 0.9; 
