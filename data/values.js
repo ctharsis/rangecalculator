@@ -75,7 +75,7 @@ linkSkills["hayato"] = {att:5, pDmg:0};
 //access other stats by passiveStat[""].att etc.
 //passiveStat[""] = {att:0, pAtt:0, pDmg:0};
 var passiveStat = new Object();
-passiveStat["dreanbuster"] = {att:90, pAtt:0, pDmg:35};
+passiveStat["dreanbuster"] = {att:90, pAtt:0, pDmg:35}; // ab was +80k, mutliplier?
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bishopwand"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["darkknightpolearm"] = {att:30, pAtt:0, pDmg:0};
