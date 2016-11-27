@@ -45,10 +45,11 @@
 				Stars/Bullet: <input id="projectile" type="text" value="0"><br />
 			</fieldset>
 			<fieldset id="equippDmg">
-				<legend>Equip %Damage:</legend>
+				<legend>% Damage:</legend>
 				Weapon: <input id="weaponDmg" type="text" value="0"><br />
 				Secondary/Shield: <input id="secondaryDmg" type="text" value="0"><br />
 				Emblem: <input id="emblemDmg" type="text" value="0"><br />
+				Nebulite: <input type="text" value="0"><br />
 			</fieldset>
 		</form>
 		<form id="form2">
@@ -78,19 +79,46 @@
 					<option value="nightlord">Night Lord</option>
 					<option value="phantom">Phantom</option>
 					<option value="shade">Shade</option>
-				<!--<option value="xenon">Xenon</option> -->
+					<option value="xenon">Xenon</option>
 				</select>
 			</fieldset>
 			<!-- main and sub stat-->
-			<fieldset>
+			<fieldset id="regularStat">
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
 				<label id="main">Main: <input id="mainstat" type="text"><br /></label>
 				<label id="sub">Sub: <input id="substat" type="text"><br /></label>
-				<!-- Xenon stuff -->
-				<label id="xstr" style="display:none">STR:<input id="xstr1" type="text" style="display:none"><br /></label>
-				<label id="xdex" style="display:none">DEX:<input id="xdex1" type="text" style="display:none"><br /></label>
-				<label id="xluk" style="display:none">LUK:<input id="xluk1" type="text" style="display:none"><br /></label>
 			</fieldset>
+			<fieldset id="xenonStat" style="display:none">
+				<legend>Stats (STR/DEX/LUK):</legend>
+				<label>Str: <input type="text"><br /></label>
+				<label>Dex: <input type="text"><br /></label>
+				<label>Luk: <input type="text"><br /></label>
+				<label>Multilateral: <select id="xenonMultilateralSelect">
+						<option value="0">None</option>
+						<option value="1">STR/DEX/LUK = 20+</option>
+						<option value="2">STR/DEX/LUK = 40+</option>
+						<option value="3">STR/DEX/LUK = 90+</option>
+						<option value="4">STR/DEX/LUK = 150+</option>
+						<option value="5">STR/DEX/LUK = 260+</option>
+						<option value="6">STR/DEX/LUK = 330+</option>
+					</select>
+				</label>
+				<p>
+					Select the Multilateral option for which your BASE stats equal<br />
+					or exceed the listed value eg. if you have 330 Str, Dex AND Luk,<br />
+					select STR/DEX/LUK = 330+; if you have 150 Str/Dex/Luk,<br />
+					select STR/DEX/LUK = 150+<br /><br />
+
+					Note: Multilateral is based on your BASE Str, Dex and Luk. This is<br />
+					the number that appears before the parenthesis on your stat window.
+				</p>
+			</fieldset>
+			<!-- Coming sometime in the future.
+			<fieldset id="demonAvengerStat" style="display:none">
+				<legend>Stats (STR/DEX/INT/LUK):</legend>
+				<label id="main">Main: <input id="mainstat" type="text"><br /></label>
+				<label id="sub">Sub: <input id="substat" type="text"><br /></label>
+			</fieldset>-->
 			<!-- set bonus attack -->
 			<fieldset id="setbonusAtt">
 				<legend>Set Bonus Attack:</legend>
@@ -100,6 +128,7 @@
 				set3: <input id="set3" type="text" value="0"><br />
 				set4: <input id="set4" type="text" value="0"><br />
 				set5: <input id="set5" type="text" value="0"><br />
+				set6: <input id="set6" type="text" value="0"><br />
 			</fieldset>
 			<!-- other sources of attack-->
 			<fieldset id="otherAtt">
@@ -108,7 +137,7 @@
 				Total M/Attack per 10 levels lines: <input id="attPer10" type="text" value="0"><br />
 				<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
 				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="text" value="0"><br />
-				Other sources (eg. Kanna Elemental Blessing): <input id="other" type="text" value="0"><br />
+				Other sources (eg. Kanna Elemental Blessing, Codex): <input id="other" type="text" value="0"><br />
 				<p>
 					Enter the <strong>higher</strong> value between Blessing of the Fairy and Empress' Blessing.
 					<br />
@@ -126,6 +155,8 @@
 				Weapon: <input id="wepPercentAtt" type="text" value="0"><br />
 				Secondary/Shield: <input id="secondPercentAtt" type="text" value="0"><br />
 				Emblem: <input id="emblemPercentAtt" type="text" value="0"><br />
+				Nebulite: <input type="text" value="0"><br />
+				Codex: <input type="text" value="0"><br />
 			</fieldset>			
 			<!-- link skills -->
 			<fieldset>
@@ -173,6 +204,8 @@
 				<li>At least level 140</li>
 				<li>All Skill Points used</li>
 				<li>Attack, % Attack and % Damage from passive skills included.</li>
+				<li>Evan: you have at least 30% MP (Dragon Fury)</li>
+				<li>Kaiser: you are in defensive stance (add 45 attack for offensive stance)</li>
 				<li><strong>Passive stats from HYPER SKILLS (not hyper stats) are ignored.</strong></li>
 				<li><strong>Character cards are NOT included (yet)</strong></li>
 				<li><strong>This is your clean range. (no buffs)</strong></li>

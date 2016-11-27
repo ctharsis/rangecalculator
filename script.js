@@ -1,10 +1,5 @@
 (function(){
 
-	window.onload = function () {
-		document.getElementById('calculate').onclick = calcRange;
-	//	document.getElementById('class').onchange = xenon;
-	};
-
 // math.floor = round down
 // math.ceil = round up
 // math.round = round
@@ -17,17 +12,18 @@
 		//document.getElementById('oneper').innerHTML = onepercent;
 	}
 
-	// the inital upper range before any % damage or % attack
-	function upperRange () {
-		var statValue = statVal();
-		var totalAtt = totalATT();
-		var totalDmg = totalDMG();
-
-		var className = document.getElementById('class').value;
-		var wepType = classWep[className];
-		var multiplier = wepMult[wepType];
-		var initUpRange = Math.round(multiplier * statValue * totalAtt / 100);
-		return Math.floor(initUpRange * (1+totalDmg/100));
+	// getting xenon stat value stuff
+	function changeClass () {
+		var classSelection = document.getElementById('class').value;
+		var regularStat = document.getElementById('regularStat');
+		var xenonStat = document.getElementById('xenonStat');
+		regularStat.style.display = "none";
+		xenonStat.style.display = "none";
+		if (classSelection == 'xenon'){
+			xenonStat.style.display = "";
+		} else {
+			regularStat.style.display = "";
+		}
 	}
 
 	// calculate the lowerRange
@@ -39,36 +35,23 @@
 		return lowerRangeFinal;
 	} 
 
-	// calculate the stat value
-	function statVal () {
-		var mainstat = parseInt(document.getElementById('mainstat').value);
-		var substat = parseInt(document.getElementById('substat').value);
-		var statValue = (mainstat * 4) + substat;
-		return statValue;
-	}
-
-	// getting xenon stat value stuff
-	function xenon () {
-		if (document.getElementById('class').value = 'xenon') {
-			document.getElementById('mainstat').style.display = 'none';
-			document.getElementById('substat').style.display = 'none';
-			document.getElementById('main').style.display = 'none';
-			document.getElementById('sub').style.display = 'none';				
-	
-			document.getElementById('xstr').style.display = '';
-			document.getElementById('xstr1').style.display = '';
-			document.getElementById('xdex').style.display = '';
-			document.getElementById('xdex1').style.display = '';
-			document.getElementById('xluk').style.display = '';
-			document.getElementById('xluk1').style.display = '';
-		}
-	}
-
 	// 1% of your stat = 
 	// calculate from the base? not from total
 	function percentStat () {
 		var mainstat = parseInt(document.getElementById('mainstat').value);
 		return (0.01 * mainstat);
+	}
+
+	// calculate the stat value
+	function statVal () {
+		if(document.getElementById('class').value == 'xenon'){
+			var xS = document.getElementById('xenonStat').getElementsByTagName('input');
+			return 4 * (parseInt(xS[0].value) + parseInt(xS[1].value) + parseInt(xS[2].value));
+		}
+		var mainstat = parseInt(document.getElementById('mainstat').value);
+		var substat = parseInt(document.getElementById('substat').value);
+		var statValue = (mainstat * 4) + substat;
+		return statValue;
 	}
 
 	// calculate the total m/attack from equips, set bonuses and other sources
@@ -141,6 +124,7 @@
 		var passiveSkillDmg = 0;
 		var rebootDmg = 0;
 
+
 		hyperDmg = parseInt(document.getElementById('hyperDmg').value);
 
 		passiveSkillDmg = passiveStat[document.getElementById('class').value].pDmg;
@@ -156,7 +140,29 @@
 
 		rebootDmg = Math.floor((parseInt(document.getElementById('charLevel').value / 2)) * parseInt(document.querySelector('input[name = "reboot"]:checked').value));
 		
+		if(document.getElementById('class').value == 'xenon'){
+			return xenonMultilateral[parseInt(document.getElementById('xenonMultilateralSelect').value)] + linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
+		}
+
 		return linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
 	}
+
+	// the inital upper range before any % damage or % attack
+	function upperRange () {
+		var statValue = statVal();
+		var totalAtt = totalATT();
+		var totalDmg = totalDMG();
+
+		var className = document.getElementById('class').value;
+		var wepType = classWep[className];
+		var multiplier = wepMult[wepType];
+		var initUpRange = Math.round(multiplier * statValue * totalAtt / 100);
+		return Math.floor(initUpRange * (1+totalDmg/100));
+	}
+
+	window.onload = function () {
+		document.getElementById('calculate').onclick = calcRange;
+		document.getElementById('class').onchange = changeClass;
+	};
 
 })();

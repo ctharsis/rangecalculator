@@ -14,6 +14,7 @@
 - Night Lord
 - Phantom
 - Shade/Eunwol
+- Xenon
 
 ## How to use:
 1. Click on the green "clone or download zip" button, and download the files as a zip.
