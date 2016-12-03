@@ -18,6 +18,7 @@
 - Night Lord
 - Phantom
 - Shade/Eunwol
+- Wind Archer
 - Xenon
 
 ## How to use:

@@ -67,6 +67,7 @@ classWep["mercedes"] = "bowgun";
 classWep["nightlord"] = "claw";
 classWep["phantom"] = "cane";
 classWep["shade"] = "knuckle";
+classWep["windarcher"] = "bow";
 classWep["xenon"] = "whipBlade";
 
 //access other stats by linkSkills[""].att etc.
@@ -111,6 +112,7 @@ passiveStat["mercedes"] = {att:50, fDmg:10, pAtt:0, pDmg:50}
 passiveStat["nightlord"] = {att:70, fDmg:0, pAtt:0, pDmg:0};
 passiveStat["phantom"] = {att:40, fDmg:0, pAtt:0, pDmg:0};
 passiveStat["shade"] = {att:20, fDmg:0, pAtt:0, pDmg:20};
+passiveStat["windarcher"] = {att:50, fDmg:25, pAtt:0, pDmg:0};
 passiveStat["xenon"] = {att:50, fDmg:0, pAtt:0, pDmg:0};
 
 var xenonMultilateral = new Object();

@@ -27,4 +27,5 @@ masteryData["mercedes"] = 0.95;
 masteryData["nightlord"] = 0.85;
 masteryData["phantom"] = 0.9;
 masteryData["shade"] = 0.9;
+masteryData["windarcher"] = 0.85;
 masteryData["xenon"] = 0.9;

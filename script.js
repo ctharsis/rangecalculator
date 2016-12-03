@@ -57,15 +57,14 @@
 	// include final damage
 	function finalDamage(range){
 		var fDmg = parseInt(document.getElementById('finalDmg').value);
-		return Math.floor(range * (1 + fDmg/100));
+		return Math.ceil(range * (1 + fDmg/100));
 	}
 
 	// calculate the lowerRange
 	function lowerRange (upRange) {
 		var className = document.getElementById('class').value;
 		var masteryValue = masteryData[className];
-		var lowerRangeFinal = Math.round(upRange * masteryValue); //NOT SURE ABOUT ROUNDING
-		return lowerRangeFinal;
+		return Math.ceil(upRange * masteryValue); //NOT SURE ABOUT ROUNDING
 	} 
 
 	// 1% of your stat = 
