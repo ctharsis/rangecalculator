@@ -1,9 +1,11 @@
 # Maplestory 1 Clean Range Calculator
 
 ## Currently supported classes:
+- Aran
 - Bishop
 - Bowmaster
 - Dark Knight
+- Demon Slayer
 - Evan
 - Fire/Poison Archmage
 - Hero
@@ -12,6 +14,7 @@
 - Kanna
 - Kinesis
 - Luminous
+- Mercedes
 - Night Lord
 - Phantom
 - Shade/Eunwol
@@ -35,6 +38,7 @@
 - [x] Crit
 - [ ] IED
 - [ ] Character Cards
+- [ ] Hayato range calculation is weird.
 
 ## Potential features
 - Deploy onto a site for easier usage

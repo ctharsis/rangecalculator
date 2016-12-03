@@ -17,7 +17,7 @@
 	}
 
 	function bossAndCritDamage(actualdamage, totaldamage){
-		return Math.floor(actualdamage*(1+totaldamage/100+parseInt(document.getElementById('bossDmg').value)/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*(parseInt(document.getElementById('critDmg').value)/100))));
+		return Math.floor(actualdamage*(1+totaldamage/100+parseInt(document.getElementById('bossDmg').value)/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*((parseInt(document.getElementById('critDmg').value) + 35)/100))));
 	}
 
 	function calcRange () {
@@ -51,7 +51,7 @@
 	}
 
 	function critDamage(actualdamage, totaldamage){
-		return Math.floor(actualdamage*(1+totaldamage/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*(parseInt(document.getElementById('critDmg').value)/100))));
+		return Math.floor(actualdamage*(1+totaldamage/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*((parseInt(document.getElementById('critDmg').value) + 35)/100))));
 	}
 
 	// include final damage
