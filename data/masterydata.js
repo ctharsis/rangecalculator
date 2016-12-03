@@ -1,6 +1,7 @@
 var masteryData = new Object();
 masteryData["dreanbuster"] = 0.95;
 masteryData["bishopstaff"] = 0.95;
+masteryData["bowmaster"] = 0.85;
 masteryData["bishopwand"] = 0.95;
 masteryData["darkknightpolearm"] = 0.9; 
 masteryData["darkknightspear"] = 0.9;

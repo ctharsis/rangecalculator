@@ -3,12 +3,36 @@
 // math.floor = round down
 // math.ceil = round up
 // math.round = round
+	
+	// Calculates AD
+	function actualDamage(){
+		var statVal = statValue();
+		var totalAtt = totalAttack();
+		
+		var className = document.getElementById('class').value;
+		var wepType = classWep[className];
+		var multiplier = wepMult[wepType];
+		
+		return Math.round(multiplier * statVal * totalAtt / 100);
+	}
+
+	function bossAndCritDamage(actualdamage, totaldamage){
+		return Math.floor(actualdamage*(1+totaldamage/100+parseInt(document.getElementById('bossDmg').value)/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*(parseInt(document.getElementById('critDmg').value)/100))));
+	}
 
 	function calcRange () {
-		var upRange = upperRange();
-		var lowRange = lowerRange();
+		var ad = actualDamage();
+		var td = totalDamage();
+		var upRange = upperRange(ad, td);
+		var lowRange = lowerRange(upRange);
+		var upCritRange = critDamage(ad, td);
+		var lowCritRange = lowerRange(upCritRange);
+		var upBossRange = bossAndCritDamage(ad, td);
+		var lowBossRange = lowerRange(upBossRange);
 		//var onepercent = percentStat();
-		document.getElementById('resultRange').innerHTML = lowRange + " ~ " + upRange;
+		document.getElementById('resultRange').innerHTML = finalDamage(lowRange) + " ~ " + finalDamage(upRange);
+		document.getElementById('critRange').innerHTML = finalDamage(lowCritRange) + " ~ " + finalDamage(upCritRange);
+		document.getElementById('bossRange').innerHTML = finalDamage(lowBossRange) + " ~ " + finalDamage(upBossRange);
 		//document.getElementById('oneper').innerHTML = onepercent;
 	}
 
@@ -26,10 +50,19 @@
 		}
 	}
 
+	function critDamage(actualdamage, totaldamage){
+		return Math.floor(actualdamage*(1+totaldamage/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*(parseInt(document.getElementById('critDmg').value)/100))));
+	}
+
+	// include final damage
+	function finalDamage(range){
+		var fDmg = parseInt(document.getElementById('finalDmg').value);
+		return Math.floor(range * (1 + fDmg/100));
+	}
+
 	// calculate the lowerRange
-	function lowerRange () {
+	function lowerRange (upRange) {
 		var className = document.getElementById('class').value;
-		var upRange = upperRange();
 		var masteryValue = masteryData[className];
 		var lowerRangeFinal = Math.round(upRange * masteryValue); //NOT SURE ABOUT ROUNDING
 		return lowerRangeFinal;
@@ -43,7 +76,7 @@
 	}
 
 	// calculate the stat value
-	function statVal () {
+	function statValue () {
 		if(document.getElementById('class').value == 'xenon'){
 			var xS = document.getElementById('xenonStat').getElementsByTagName('input');
 			return 4 * (parseInt(xS[0].value) + parseInt(xS[1].value) + parseInt(xS[2].value));
@@ -55,7 +88,7 @@
 	}
 
 	// calculate the total m/attack from equips, set bonuses and other sources
-	function totalATT () {
+	function totalAttack () {
 		var totalATT = 0;
 		var totalPercentATT = 0;
 
@@ -117,7 +150,7 @@
 	}
 
 	// grabs link, equip, hyper, and reboot (if checked) damage and returns the sum.
-	function totalDMG(){
+	function totalDamage(){
 		var linkDmg = 0;
 		var equipDmg = 0;
 		var hyperDmg = 0;
@@ -148,16 +181,8 @@
 	}
 
 	// the inital upper range before any % damage or % attack
-	function upperRange () {
-		var statValue = statVal();
-		var totalAtt = totalATT();
-		var totalDmg = totalDMG();
-
-		var className = document.getElementById('class').value;
-		var wepType = classWep[className];
-		var multiplier = wepMult[wepType];
-		var initUpRange = Math.round(multiplier * statValue * totalAtt / 100);
-		return Math.floor(initUpRange * (1+totalDmg/100));
+	function upperRange (actualdamage, totalDmg) {
+		return Math.floor(actualdamage * (1+totalDmg/100));
 	}
 
 	window.onload = function () {

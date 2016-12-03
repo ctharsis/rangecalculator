@@ -12,44 +12,44 @@
 		<form id="form1">
 			<fieldset id="equipAtt">
 				<legend>Equip M/Attack: (include potentials)</legend>
-				Weapon: <input id="weapon" type="text" value="0"><br />
-				Secondary/Shield: <input id="secondary" type="text" value="0"><br />
-				Emblem: <input id="emblem" type="text" value="0"><br />
-				Ring1: <input id="ring1" type="text" value="0"><br />
-				Ring2: <input id="ring2" type="text" value="0"><br />
-				Ring3: <input id="ring3" type="text" value="0"><br />
-				Ring4: <input id="ring4" type="text" value="0"><br />
-				Pocket: <input id="pocket" type="text" value="0"><br />
-				Pendant1: <input id="pendant1" type="text" value="0"><br />
-				Pendant2: <input id="pendant2" type="text" value="0"><br />
-				Belt: <input id="belt" type="text" value="0"><br />
-				Hat: <input id="hat" type="text" value="0"><br />
-				Face: <input id="face" type="text" value="0"><br />
-				Eye: <input id="eye" type="text" value="0"><br />
-				Top: <input id="top" type="text" value="0"><br />
-				Bottom: <input id="bottom" type="text" value="0"><br />
-				Boots: <input id="boots" type="text" value="0"><br />
-				Earrings: <input id="earrings" type="text" value="0"><br />
-				Shoulder: <input id="shoulder" type="text"value="0"><br />
-				Gloves: <input id="gloves" type="text" value="0"><br />
-				Badge: <input id="badge" type="text" value="0"><br />
-				Medal: <input id="medal" type="text" value="0"><br />
-				Cape: <input id="cape" type="text" value="0"><br />
-				Heart: <input id="heart" type="text" value="0"><br />
+				Weapon: <input id="weapon" type="number" value="0"><br />
+				Secondary/Shield: <input id="secondary" type="number" value="0"><br />
+				Emblem: <input id="emblem" type="number" value="0"><br />
+				Ring1: <input id="ring1" type="number" value="0"><br />
+				Ring2: <input id="ring2" type="number" value="0"><br />
+				Ring3: <input id="ring3" type="number" value="0"><br />
+				Ring4: <input id="ring4" type="number" value="0"><br />
+				Pocket: <input id="pocket" type="number" value="0"><br />
+				Pendant1: <input id="pendant1" type="number" value="0"><br />
+				Pendant2: <input id="pendant2" type="number" value="0"><br />
+				Belt: <input id="belt" type="number" value="0"><br />
+				Hat: <input id="hat" type="number" value="0"><br />
+				Face: <input id="face" type="number" value="0"><br />
+				Eye: <input id="eye" type="number" value="0"><br />
+				Top: <input id="top" type="number" value="0"><br />
+				Bottom: <input id="bottom" type="number" value="0"><br />
+				Boots: <input id="boots" type="number" value="0"><br />
+				Earrings: <input id="earrings" type="number" value="0"><br />
+				Shoulder: <input id="shoulder" type="number"value="0"><br />
+				Gloves: <input id="gloves" type="number" value="0"><br />
+				Badge: <input id="badge" type="number" value="0"><br />
+				Medal: <input id="medal" type="number" value="0"><br />
+				Cape: <input id="cape" type="number" value="0"><br />
+				Heart: <input id="heart" type="number" value="0"><br />
 				
-				Totem1: <input id="totem1" type="text" value="0"><br />
-				Totem2: <input id="totem2" type="text" value="0"><br />
-				Totem3: <input id="totem3" type="text" value="0"><br />
+				Totem1: <input id="totem1" type="number" value="0"><br />
+				Totem2: <input id="totem2" type="number" value="0"><br />
+				Totem3: <input id="totem3" type="number" value="0"><br />
 				
-				Title: <input id="title" type="text" value="0"><br />
-				Stars/Bullet: <input id="projectile" type="text" value="0"><br />
+				Title: <input id="title" type="number" value="0"><br />
+				Projectiles: <input id="projectile" type="number" value="0"><br />
 			</fieldset>
 			<fieldset id="equippDmg">
 				<legend>% Damage:</legend>
-				Weapon: <input id="weaponDmg" type="text" value="0"><br />
-				Secondary/Shield: <input id="secondaryDmg" type="text" value="0"><br />
-				Emblem: <input id="emblemDmg" type="text" value="0"><br />
-				Nebulite: <input type="text" value="0"><br />
+				Weapon: <input id="weaponDmg" type="number" value="0"><br />
+				Secondary/Shield: <input id="secondaryDmg" type="number" value="0"><br />
+				Emblem: <input id="emblemDmg" type="number" value="0"><br />
+				Nebulite: <input type="number" value="0"><br />
 			</fieldset>
 		</form>
 		<form id="form2">
@@ -60,6 +60,7 @@
 				<!--	<option value="dreanbuster">Angelic Buster</option> -->
 					<option value="bishopstaff">Bishop (Staff)</option>
 					<option value="bishopwand">Bishop (Wand)</option>
+					<option value="bowmaster">Bowmaster</option>
 					<option value="darkknightpolearm">Dark Knight (Pole Arm)</option>
 					<option value="darkknightspear">Dark Knight (Spear)</option>		
 					<option value="evanstaff">Evan (Staff)</option>
@@ -85,14 +86,14 @@
 			<!-- main and sub stat-->
 			<fieldset id="regularStat">
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
-				<label id="main">Main: <input id="mainstat" type="text"><br /></label>
-				<label id="sub">Sub: <input id="substat" type="text"><br /></label>
+				<label id="main">Main: <input id="mainstat" type="number"><br /></label>
+				<label id="sub">Sub: <input id="substat" type="number"><br /></label>
 			</fieldset>
 			<fieldset id="xenonStat" style="display:none">
 				<legend>Stats (STR/DEX/LUK):</legend>
-				<label>Str: <input type="text"><br /></label>
-				<label>Dex: <input type="text"><br /></label>
-				<label>Luk: <input type="text"><br /></label>
+				<label>Str: <input type="number"><br /></label>
+				<label>Dex: <input type="number"><br /></label>
+				<label>Luk: <input type="number"><br /></label>
 				<label>Multilateral: <select id="xenonMultilateralSelect">
 						<option value="0">None</option>
 						<option value="1">STR/DEX/LUK = 20+</option>
@@ -116,47 +117,46 @@
 			<!-- Coming sometime in the future.
 			<fieldset id="demonAvengerStat" style="display:none">
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
-				<label id="main">Main: <input id="mainstat" type="text"><br /></label>
-				<label id="sub">Sub: <input id="substat" type="text"><br /></label>
+				<label id="main">Main: <input id="mainstat" type="number"><br /></label>
+				<label id="sub">Sub: <input id="substat" type="number"><br /></label>
 			</fieldset>-->
 			<!-- set bonus attack -->
 			<fieldset id="setbonusAtt">
 				<legend>Set Bonus Attack:</legend>
 				<p>Set bonuses such as Gollux/CRA/Others</p>
-				set1: <input id="set1" type="text" value="0"><br />
-				set2: <input id="set2" type="text" value="0"><br />
-				set3: <input id="set3" type="text" value="0"><br />
-				set4: <input id="set4" type="text" value="0"><br />
-				set5: <input id="set5" type="text" value="0"><br />
-				set6: <input id="set6" type="text" value="0"><br />
+				set1: <input id="set1" type="number" value="0"><br />
+				set2: <input id="set2" type="number" value="0"><br />
+				set3: <input id="set3" type="number" value="0"><br />
+				set4: <input id="set4" type="number" value="0"><br />
+				set5: <input id="set5" type="number" value="0"><br />
+				set6: <input id="set6" type="number" value="0"><br />
 			</fieldset>
 			<!-- other sources of attack-->
 			<fieldset id="otherAtt">
 				<legend>Other sources of Attack:</legend>
-				Inner Ability: <input id="innerAbility" type="text" value="0"><br />
-				Total M/Attack per 10 levels lines: <input id="attPer10" type="text" value="0"><br />
+				Inner Ability: <input id="innerAbility" type="number" value="0"><br />
+				Total M/Attack per 10 levels lines: <input id="attPer10" type="number" value="0"><br />
 				<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
-				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="text" value="0"><br />
-				Other sources (eg. Kanna Elemental Blessing, Codex): <input id="other" type="text" value="0"><br />
+				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="number" value="0"><br />
+				Other sources (eg. Kanna Ele Blessing, Codex): <input id="other" type="number" value="0"><br />
 				<p>
-					Enter the <strong>higher</strong> value between Blessing of the Fairy and Empress' Blessing.
-					<br />
-					0 if you do not have either
+					Enter the <strong>higher</strong> value between Blessing of the Fairy <br />
+					and Empress' Blessing. 0 if you do not have either.
 				</p>
 				<p>
 					Enter the total number of attack you get per 10 levels. <br />
-					<strong>eg.</strong> if you have a +1 M/Att per 10 levels line and a +2 M/Att per 10 <br />
-					levels line, enter "3".
+					<strong>eg.</strong> if you have a +1 M/Att per 10 levels line and a <br />
+					+2 M/Att per 10 levels line, enter "3".
 				</p>
 			</fieldset>
 			<!-- weapon/secondary/emblem %att-->	
 			<fieldset id="percentAtt">
 				<legend> % Attack: (including bonus pot)</legend>
-				Weapon: <input id="wepPercentAtt" type="text" value="0"><br />
-				Secondary/Shield: <input id="secondPercentAtt" type="text" value="0"><br />
-				Emblem: <input id="emblemPercentAtt" type="text" value="0"><br />
-				Nebulite: <input type="text" value="0"><br />
-				Codex: <input type="text" value="0"><br />
+				Weapon: <input id="wepPercentAtt" type="number" value="0"><br />
+				Secondary/Shield: <input id="secondPercentAtt" type="number" value="0"><br />
+				Emblem: <input id="emblemPercentAtt" type="number" value="0"><br />
+				Nebulite: <input type="number" value="0"><br />
+				Codex: <input type="number" value="0"><br />
 			</fieldset>			
 			<!-- link skills -->
 			<fieldset>
@@ -190,10 +190,25 @@
 			</fieldset>	
 			<fieldset>
 				<legend>Hyper Stat % Damage</legend>
-					% Damage <input id="hyperDmg" type="text" value="0"><br />
+					% Damage: <input id="hyperDmg" type="number" value="0"><br />
+			</fieldset>
+			<fieldset>
+				<legend>% Crit</legend>
+					Crit Rate: <input id="critRate" type="number" value="0"><br />
+					Crit Damage: <input id="critDmg" type="number" value="0"><br />
+			</fieldset>
+			<fieldset>
+				<legend>% Boss Damage</legend>
+					Boss Damage: <input id="bossDmg" type="number" value="0"><br />
+			</fieldset>
+			<fieldset>
+				<legend>% Final Damage</legend>
+					Final Damage: <input id="finalDmg" type="number" value="0"><br />
 			</fieldset>
 			<div>
-				<h2>Your range is: <span id="resultRange"></span></h2>
+				<h2>Your visual range is: <br /><span id="resultRange"></span></h2>
+				<h2>Your range including crit is: <br /><span id="critRange"></span></h2>
+				<h2>Your range including boss too is: <br /><span id="bossRange"></span></h2>
 			<!--	<h3>1% of your Main Stat is: <span id="oneper"></span></h3> -->
 			</div>
 		</form>

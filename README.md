@@ -2,6 +2,7 @@
 
 ## Currently supported classes:
 - Bishop
+- Bowmaster
 - Dark Knight
 - Evan
 - Fire/Poison Archmage
@@ -29,11 +30,11 @@
 8. Click calculate. It should match up with what you see in-game. Now you can experiment to see how your range changes if you swap out equipment, or if say you get another star on a tyrants piece. Boss Damage, Crit and IED calculations will come later.
 
 ## To-Do list
-- Finish adding every class
-- Boss Damage
-- Crit
-- IED
-- Character Cards
+- [ ] Finish adding every class
+- [x] Boss Damage
+- [x] Crit
+- [ ] IED
+- [ ] Character Cards
 
 ## Potential features
 - Deploy onto a site for easier usage

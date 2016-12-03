@@ -1,9 +1,13 @@
 div {
 	float:left;
 }
-/* comment */
+
 form {
 	text-align: left;
+}
+
+input[type="number"] {
+	width: 70px;
 }
 
 legend {
