@@ -5,6 +5,7 @@
 - Bishop
 - Bowmaster
 - Dark Knight
+- Dawn Warrior (1H Sword)
 - Demon Slayer
 - Evan
 - Fire/Poison Archmage
@@ -16,6 +17,7 @@
 - Luminous
 - Mercedes
 - Night Lord
+- Night Walker
 - Phantom
 - Shade/Eunwol
 - Wind Archer
