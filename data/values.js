@@ -40,8 +40,6 @@ wepMult["psylimiter"] = 1.20;
 
 // weapons that the classes use
 var classWep = new Object();
-classWep["dawnwarrior1hs"] = "oneHandSword"; 
-classWep["dawnwarrior2hs"] = "twoHandSword"; // WIP
 classWep["dreanbuster"] = "soulShooter"; // angelic buster hue hue hue
 classWep["aran"] = "polearm";
 classWep["bishopstaff"] = "staffExplorer";
@@ -51,6 +49,8 @@ classWep["blazewizstaff"] = "staff"; // WIP
 classWep["blazewizwand"] = "wand"; // WIP
 classWep["darkknightpolearm"] = "polearm";
 classWep["darkknightspear"] = "spear";
+classWep["dawnwarrior1hs"] = "oneHandSword"; 
+classWep["dawnwarrior2hs"] = "twoHandSword"; // WIP
 classWep["demonslayer1ha"] = "oneHandAxe";
 classWep["demonslayer1hb"] = "oneHandBlunt";
 classWep["evanstaff"] = "staff";
@@ -91,8 +91,6 @@ linkSkills["hayato"] = {att:5, pDmg:0};
 //passiveStat[""] = {att:0, fDmg:0, pAtt:0, pDmg:0};
 // maybe take out fDmg?
 var passiveStat = new Object();
-passiveStat["dawnwarrior1hs"] = {att:120, pAtt:10, pDmg:0};
-passiveStat["dawnwarrior2hs"] = {att:120, pAtt:10, pDmg:0}; // WIP
 passiveStat["dreanbuster"] = {att:90, pAtt:0, pDmg:35}; // ab was +80k, mutliplier?
 passiveStat["aran"] = {att:80, pAtt:0, pDmg:20};
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
@@ -102,6 +100,8 @@ passiveStat["blazewizstaff"] = {att:20, pAtt:0, pDmg:0}; // WIP
 passiveStat["blazewizwand"] = {att:20, pAtt:0, pDmg:0}; // WIP
 passiveStat["darkknightpolearm"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["darkknightspear"] = {att:30, pAtt:0, pDmg:5};
+passiveStat["dawnwarrior1hs"] = {att:120, pAtt:10, pDmg:0};
+passiveStat["dawnwarrior2hs"] = {att:120, pAtt:10, pDmg:0}; // WIP
 passiveStat["demonslayer1ha"] = {att:100, pAtt:0, pDmg:40};
 passiveStat["demonslayer1hb"] = {att:100, pAtt:0, pDmg:40};
 passiveStat["evanstaff"] = {att:60, pAtt:35, pDmg:0};

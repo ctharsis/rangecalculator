@@ -57,8 +57,6 @@
 			<fieldset>
 				<legend>Class</legend>
 				<select id="class">
-					<option value="dawnwarrior1hs">Dawn Warrior (1H Sword)</option>
-				<!--	<option value="dawnwarrior1hs">Dawn Warrior (2H Sword)</option> -->
 				<!--	<option value="dreanbuster">Angelic Buster</option> -->
 					<option value="aran">Aran</option>
 					<option value="bishopstaff">Bishop (Staff)</option>
@@ -67,7 +65,9 @@
 					<option value="blazewizstaff">Blaze Wizard (Staff)</option>				
 					<option value="blazewizwand">Blaze Wizard (Wand)</option> 
 					<option value="darkknightpolearm">Dark Knight (Pole Arm)</option>
-					<option value="darkknightspear">Dark Knight (Spear)</option>		
+					<option value="darkknightspear">Dark Knight (Spear)</option>
+					<option value="dawnwarrior1hs">Dawn Warrior (1H Sword)</option>
+				<!--	<option value="dawnwarrior1hs">Dawn Warrior (2H Sword)</option> -->		
 					<option value="demonslayer1ha">Demon Slayer (1H Axe)</option>	
 					<option value="demonslayer1hb">Demon Slayer (1H Blunt)</option>	
 					<option value="evanstaff">Evan (Staff)</option>
@@ -102,6 +102,15 @@
 			</fieldset>
 			<fieldset id="xenonStat" style="display:none">
 				<legend>Stats (STR/DEX/LUK):</legend>
+				<p>
+					Select the Multilateral option for which your BASE stats equal<br />
+					or exceed the listed value eg. if you have 330 Str, Dex AND Luk,<br />
+					select STR/DEX/LUK = 330+; if you have 150 Str/Dex/Luk,<br />
+					select STR/DEX/LUK = 150+<br /><br />
+
+					Note: Multilateral is based on your BASE Str, Dex and Luk. This is<br />
+					the number that appears before the parenthesis on your stat window.
+				</p>
 				<label>Str: <input type="number"><br /></label>
 				<label>Dex: <input type="number"><br /></label>
 				<label>Luk: <input type="number"><br /></label>
@@ -115,15 +124,6 @@
 						<option value="6">STR/DEX/LUK = 330+</option>
 					</select>
 				</label>
-				<p>
-					Select the Multilateral option for which your BASE stats equal<br />
-					or exceed the listed value eg. if you have 330 Str, Dex AND Luk,<br />
-					select STR/DEX/LUK = 330+; if you have 150 Str/Dex/Luk,<br />
-					select STR/DEX/LUK = 150+<br /><br />
-
-					Note: Multilateral is based on your BASE Str, Dex and Luk. This is<br />
-					the number that appears before the parenthesis on your stat window.
-				</p>
 			</fieldset>
 			<!-- Coming sometime in the future.
 			<fieldset id="demonAvengerStat" style="display:none">
@@ -145,11 +145,6 @@
 			<!-- other sources of attack-->
 			<fieldset id="otherAtt">
 				<legend>Other sources of Attack:</legend>
-				Inner Ability: <input id="innerAbility" type="number" value="0"><br />
-				Total M/Attack per 10 levels lines: <input id="attPer10" type="number" value="0"><br />
-				<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
-				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="number" value="0"><br />
-				Other sources (eg. Kanna Ele Blessing, Codex): <input id="other" type="number" value="0"><br />
 				<p>
 					Enter the <strong>higher</strong> value between Blessing of the Fairy <br />
 					and Empress' Blessing. 0 if you do not have either.
@@ -159,6 +154,12 @@
 					<strong>eg.</strong> if you have a +1 M/Att per 10 levels line and a <br />
 					+2 M/Att per 10 levels line, enter "3".
 				</p>
+				Inner Ability: <input id="innerAbility" type="number" value="0"><br />
+				Total M/Attack per 10 levels lines: <input id="attPer10" type="number" value="0"><br />
+				<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
+				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="number" value="0"><br />
+				Other sources (eg. Kanna Ele Blessing, Codex): <input id="other" type="number" value="0"><br />
+				
 			</fieldset>
 			<!-- weapon/secondary/emblem %att-->	
 			<fieldset id="percentAtt">

@@ -1,6 +1,4 @@
 var masteryData = new Object();
-masteryData["dawnwarrior1hs"] = 0.9;
-masteryData["dawnwarrior2hs"] = 0.9;
 masteryData["dreanbuster"] = 0.95;
 masteryData["aran"] = 0.9;
 masteryData["bishopstaff"] = 0.95;
@@ -10,6 +8,8 @@ masteryData["blazewizstaff"] = 0.95;
 masteryData["blazewizwand"] = 0.95;
 masteryData["darkknightpolearm"] = 0.9; 
 masteryData["darkknightspear"] = 0.9;
+masteryData["dawnwarrior1hs"] = 0.9;
+masteryData["dawnwarrior2hs"] = 0.9;
 masteryData["demonslayer1ha"] = 0.9;
 masteryData["demonslayer1hb"] = 0.9;
 masteryData["evanstaff"] = 0.95;
