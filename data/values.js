@@ -1,6 +1,5 @@
 // weapon multiplier values
 // tl;dr explorer warrior and mages have an increased multipliers
-// oneHandSword original multiplier : 1.2
 // 2h axe original multiplier 1.34 
 var wepMult = new Object();
 wepMult["oneHandSword"] = 1.2; // regular one hand sword
@@ -45,12 +44,12 @@ classWep["aran"] = "polearm";
 classWep["bishopstaff"] = "staffExplorer";
 classWep["bishopwand"] = "wandExplorer";
 classWep["bowmaster"] = "bow";
-classWep["blazewizstaff"] = "staff"; // WIP 
-classWep["blazewizwand"] = "wand"; // WIP
+classWep["blazewizstaff"] = "staffExplorer"; // BW uses the explorer multiplier /shrug
+classWep["blazewizwand"] = "wandExplorer"; // BW uses the explorer multiplier /shrug
 classWep["darkknightpolearm"] = "polearm";
 classWep["darkknightspear"] = "spear";
 classWep["dawnwarrior1hs"] = "oneHandSword"; 
-classWep["dawnwarrior2hs"] = "twoHandSword"; // WIP
+classWep["dawnwarrior2hs"] = "twoHandSword"; 
 classWep["demonslayer1ha"] = "oneHandAxe";
 classWep["demonslayer1hb"] = "oneHandBlunt";
 classWep["evanstaff"] = "staff";
@@ -73,6 +72,7 @@ classWep["nightlord"] = "claw";
 classWep["nightwalker"] = "claw";
 classWep["phantom"] = "cane";
 classWep["shade"] = "knuckle";
+classWep["thunderbreaker"] = "knuckle";
 classWep["windarcher"] = "bow";
 classWep["xenon"] = "whipBlade";
 
@@ -96,12 +96,12 @@ passiveStat["aran"] = {att:80, pAtt:0, pDmg:20};
 passiveStat["bishopstaff"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bishopwand"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["bowmaster"] = {att:80,	 pAtt:25, pDmg:0};
-passiveStat["blazewizstaff"] = {att:20, pAtt:0, pDmg:0}; // WIP
-passiveStat["blazewizwand"] = {att:20, pAtt:0, pDmg:0}; // WIP
+passiveStat["blazewizstaff"] = {att:20, pAtt:10, pDmg:0}; 
+passiveStat["blazewizwand"] = {att:20, pAtt:10, pDmg:0};
 passiveStat["darkknightpolearm"] = {att:30, pAtt:0, pDmg:0};
 passiveStat["darkknightspear"] = {att:30, pAtt:0, pDmg:5};
 passiveStat["dawnwarrior1hs"] = {att:120, pAtt:10, pDmg:0};
-passiveStat["dawnwarrior2hs"] = {att:120, pAtt:10, pDmg:0}; // WIP
+passiveStat["dawnwarrior2hs"] = {att:120, pAtt:10, pDmg:0};
 passiveStat["demonslayer1ha"] = {att:100, pAtt:0, pDmg:40};
 passiveStat["demonslayer1hb"] = {att:100, pAtt:0, pDmg:40};
 passiveStat["evanstaff"] = {att:60, pAtt:35, pDmg:0};
@@ -121,10 +121,11 @@ passiveStat["kinesis"] = {att:50, pAtt:0, pDmg:0};
 passiveStat["luminous"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["mercedes"] = {att:50, pAtt:0, pDmg:50}
 passiveStat["nightlord"] = {att:70, pAtt:0, pDmg:0};
-passiveStat["nightwalker"] = {att:60, pAtt:0, pDmg:20};
+passiveStat["nightwalker"] = {att:60, pAtt:10, pDmg:20};
 passiveStat["phantom"] = {att:40, pAtt:0, pDmg:0};
 passiveStat["shade"] = {att:20, pAtt:0, pDmg:20};
-passiveStat["windarcher"] = {att:50, pAtt:0, pDmg:0};
+passiveStat["thunderbreaker"] = {att:80, pAtt:10, pDmg:5};
+passiveStat["windarcher"] = {att:50, pAtt:10, pDmg:0};
 passiveStat["xenon"] = {att:50, pAtt:0, pDmg:0};
 
 var xenonMultilateral = new Object();

@@ -56,7 +56,7 @@
 
 	// include final damage
 	function finalDamage(range){
-		var fDmg = parseInt(document.getElementById('finalDmg').value);
+		var fDmg = parseFloat(document.getElementById('finalDmg').value);
 		return Math.ceil(range * (1 + fDmg/100));
 	}
 

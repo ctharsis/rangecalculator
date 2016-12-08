@@ -3,9 +3,10 @@
 ## Currently supported classes:
 - Aran
 - Bishop
+- Blaze Wizard
 - Bowmaster
 - Dark Knight
-- Dawn Warrior (1H Sword)
+- Dawn Warrior
 - Demon Slayer
 - Evan
 - Fire/Poison Archmage
@@ -20,6 +21,7 @@
 - Night Walker
 - Phantom
 - Shade/Eunwol
+- Thunder Breaker
 - Wind Archer
 - Xenon
 
@@ -28,6 +30,7 @@
 
   ![zip](https://puu.sh/ssS7x/c7fded7742.png)
 2. Navigate to your downloads folder, find the file "rangecalculator-master.zip", right click it and extract the files.
+	2a. Rename the folder "rangecalculator-master" to "rangecalculator"
 3. Open up your web browser, open a new tab, and press control + o. (alternatively, you can click file > open file on the top left [if your browser has that])
 4. Navigate to where you extracted the files earlier, and select "calculator.html". Open it.
 5. If everything went okay, you should now see our calculator. It works better on wider monitors.

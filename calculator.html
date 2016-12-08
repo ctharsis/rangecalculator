@@ -67,7 +67,7 @@
 					<option value="darkknightpolearm">Dark Knight (Pole Arm)</option>
 					<option value="darkknightspear">Dark Knight (Spear)</option>
 					<option value="dawnwarrior1hs">Dawn Warrior (1H Sword)</option>
-				<!--	<option value="dawnwarrior1hs">Dawn Warrior (2H Sword)</option> -->		
+					<option value="dawnwarrior2hs">Dawn Warrior (2H Sword)</option> 		
 					<option value="demonslayer1ha">Demon Slayer (1H Axe)</option>	
 					<option value="demonslayer1hb">Demon Slayer (1H Blunt)</option>	
 					<option value="evanstaff">Evan (Staff)</option>
@@ -90,6 +90,7 @@
 					<option value="nightwalker">Night Walker</option>
 					<option value="phantom">Phantom</option>
 					<option value="shade">Shade</option>
+					<option value="thunderbreaker">Thunder Breaker</option>
 					<option value="windarcher">Wind Archer</option>
 					<option value="xenon">Xenon</option>
 				</select>
@@ -215,7 +216,7 @@
 			</fieldset>
 			<fieldset>
 				<legend>% Final Damage</legend>
-					Final Damage: <input id="finalDmg" type="number" value="0"><br />
+					Final Damage: <input id="finalDmg" type="number" step="0.1" value="0"><br />
 			</fieldset>
 			<div>
 				<h2>Your visual range is: <br /><span id="resultRange"></span></h2>
@@ -231,8 +232,9 @@
 				<li>At least level 140</li>
 				<li>All Skill Points used</li>
 				<li>Attack, % Attack and % Damage from passive skills included.</li>
+				<li>Cygnus Knights: Elemental Expert is unlocked.</li>
 				<li>Evan: you have at least 30% MP (Dragon Fury)</li>
-				<li>Kaiser: you are in defensive stance (add 45 attack for offensive stance)</li>
+				<li>Kaiser: you are in defensive stance (add 45 attack for offensive stance).</li>
 				<li><strong>Passive stats from HYPER SKILLS (not hyper stats) are ignored.</strong></li>
 				<li><strong>Character cards are NOT included (yet)</strong></li>
 				<li><strong>This is your clean range. (no buffs)</strong></li>
@@ -243,6 +245,7 @@
 				<li>All Reboot Characters have a 'Hidden' 5 Magic/Attack</li>
 				<li>Range may be off by 1 or 2, because of Nexon Spaghetti&trade; code</li>
 				<li>The following classes have a beginner skill that grants additional attack.<br/> Put the additional attack under Other sources:<br/>Aran, Evan, Kanna</li>
+				<li>If Final Damage is red in the stat window, it is probably rounded some way<br/>or another. If you class is listed here, use the provided final damage number.<br/>Blaze Wizard: 87.5</li>
 			</ul>
 			<h3>Dev notes:</h3>
 			<ul>
