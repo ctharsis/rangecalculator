@@ -28,6 +28,7 @@ masteryData["kanna"] = 0.9;
 masteryData["kinesis"] = 0.9;
 masteryData["luminous"] = 0.95;
 masteryData["mercedes"] = 0.95;
+masteryData["mihile"] = 0.9;
 masteryData["nightlord"] = 0.85;
 masteryData["nightwalker"] = 0.85;
 masteryData["phantom"] = 0.9;
