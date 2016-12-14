@@ -1,5 +1,7 @@
 # Maplestory 1 Clean Range Calculator
 
+## To use go to this link: https://ctharsis.github.io/rangecalculator/calculator.html
+
 ## Currently supported classes:
 - Aran
 - Bishop
