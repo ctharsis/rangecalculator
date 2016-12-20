@@ -41,11 +41,21 @@
 		var classSelection = document.getElementById('class').value;
 		var regularStat = document.getElementById('regularStat');
 		var xenonStat = document.getElementById('xenonStat');
+		var kocExpert = document.getElementById('kocExpert');
+		var kocExpertLabel = document.getElementById('kocLabel');
 		regularStat.style.display = "none";
 		xenonStat.style.display = "none";
+		kocExpert.style.display = "none";
+		kocExpertLabel.style.display = "none";
 		if (classSelection == 'xenon'){
 			xenonStat.style.display = "";
-		} else {
+		} else if (classSelection == 'blazewizstaff' || classSelection == 'blazewizwand' ||
+			classSelection == 'dawnwarrior1hs' || classSelection == 'dawnwarrior2hs' ||
+			classSelection == 'nightwalker' || classSelection == 'windarcher') {
+			kocExpertLabel.style.display = "";
+			kocExpert.style.display = "";
+			regularStat.style.display = "";
+		} else {	
 			regularStat.style.display = "";
 		}
 	}
@@ -111,6 +121,12 @@
 			totalPercentATT = totalPercentATT + parseInt(pAtt[i].value);
 		}
 
+		// elemental expert (cygnus)
+		// + 10 because 10%
+		if (document.getElementById('kocExpert').checked) {
+			totalPercentATT = totalPercentATT + 10;
+		}
+		
 		// class passive skill %att
 		totalPercentATT = totalPercentATT + passiveStat[document.getElementById('class').value].pAtt;
 
