@@ -33,7 +33,6 @@
 - [x] Boss Damage
 - [x] Crit
 - [ ] IED
-- [ ] Character Cards
 - [ ] Hayato range calculation is weird.
 
 ## Potential features
@@ -43,3 +42,9 @@
 - Skill damage calculation and theoretical DPS
   - Attack speed inclusion
 - Calculations for a range increase per 1% stat
+
+## Notes
+- Decided to not add character cards 
+  - The range you gain from character cards are minimal, and as a whole does not contribute much to your range
+  - Character cards usually serve as a boost to important stats such as boss, IED/PDR, crit rate, crit damage, etc
+  
