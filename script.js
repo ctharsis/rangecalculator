@@ -164,6 +164,26 @@
 		return totalWA;
 	}
 
+	// calculates total base stat before % is included
+	function totalBaseStat () {
+		var totalPStat = 0;
+	
+		// attack from equips, set bonuses, other sources 
+		var mainstat = parseInt(document.getElementById('mainstat'));
+		//var equiplist = document.getElementById('equipPStat');
+		//var arcanestat = document.getElementById('arcane'); //placeholder 
+		//var equipName = equipStat.getElementsByTagName('input');
+		for (var i = 0; i < equipName.length; i++) {
+			totalPStat = totalPStat + parseInt(equipName[i].value);
+		}
+
+		var xenonlink = parseInt(document.querySelector('input[name = "Xenonlink"]:checked').value);
+
+		totalPStat = totalPStat + (xenonlink * 5);
+
+		return Math.ceil((mainstat-arcanestat)/(1+(totalPStat/100)));
+	}
+
 	// grabs link, equip, hyper, and reboot (if checked) damage and returns the sum.
 	function totalDamage(){
 		var linkDmg = 0;
