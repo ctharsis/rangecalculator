@@ -47,4 +47,4 @@
 - Decided to not add character cards 
   - The range you gain from character cards are minimal, and as a whole does not contribute much to your range
   - Character cards usually serve as a boost to important stats such as boss, IED/PDR, crit rate, crit damage, etc
-  
+  - New Maple Union system replacing current character card system
