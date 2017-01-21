@@ -3,7 +3,7 @@
 // math.floor = round down
 // math.ceil = round up
 // math.round = round
-	
+
 	// Calculates AD
 	function actualDamage(){
 		var statVal = statValue();
@@ -64,6 +64,16 @@
 		return Math.floor(actualdamage*(1+totaldamage/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*((parseInt(document.getElementById('critDmg').value) + 35)/100))));
 	}
 
+
+	function divToInputArray(array){
+		var resultArray = [];
+		array = Array.prototype.slice.call(array, 0);
+		for(var i = 0; i<array.length; i++){
+			resultArray = resultArray.concat(Array.prototype.slice.call(array[i].getElementsByTagName('input'), 0));
+		}
+		return resultArray;
+	}
+
 	// include final damage
 	function finalDamage(range){
 		var fDmg = parseFloat(document.getElementById('finalDmg').value);
@@ -82,6 +92,27 @@
 	function percentStat () {
 		var mainstat = parseInt(document.getElementById('mainstat').value);
 		return (0.01 * mainstat);
+	}
+
+	//populate dropdowns
+	function populateMenus(){
+		var allLines = [document.getElementById('weaponLines'), document.getElementById('secondaryLines'), document.getElementById('emblemLines'), document.getElementById('gloveLines')];
+		var inputLines = [wepsecLines, wepsecLines, wepsecLines, gloveLines];
+		/*var wepLines = document.getElementById('weaponLines');
+		var secLines = document.getElementById('secondaryLines');
+		var embLines = document.getElementById('emblemLines');
+		var gloLines = document.getElementById('gloveLines');*/
+
+		for(var i = 0; i < allLines.length; i++){
+			var currentLines = allLines[i].getElementsByTagName('select');
+			var currentInput = inputLines[i];
+			for(var j = 0; j < currentLines.length; j++){
+				var currentLine = currentLines[j];
+				for(var k = 0; k < currentInput.length; k++){
+					currentLine.options[currentLine.options.length] = new Option(currentInput[k][0], currentInput[k][1]);
+				}
+			}
+		}
 	}
 
 	// calculate the stat value
@@ -103,7 +134,8 @@
 
 		// attack from equips, set bonuses, other sources 
 		var equipAtt = document.getElementById('equipAtt');
-		var equipName = equipAtt.getElementsByTagName('input');
+		var equipAttDiv = equipAtt.getElementsByTagName('div');
+		var equipName = divToInputArray(equipAttDiv);
 		for (var i = 0; i < equipName.length; i++) {
 			totalATT = totalATT + parseInt(equipName[i].value);
 		}
@@ -115,11 +147,11 @@
 		}
 
 		// total % att (emblem/secondary/weapon);
-		var percentAtt = document.getElementById('percentAtt');	
+		/*var percentAtt = document.getElementById('percentAtt');	
 		var pAtt = percentAtt.getElementsByTagName('input');
 		for (var i = 0; i < pAtt.length; i++) {
 			totalPercentATT = totalPercentATT + parseInt(pAtt[i].value);
-		}
+		}*/
 
 		// elemental expert (cygnus)
 		// + 10 because 10%
@@ -167,20 +199,21 @@
 	// calculates total base stat before % is included
 	function totalBaseStat () {
 		var totalPStat = 0;
-	
+
 		// attack from equips, set bonuses, other sources 
-		var mainstat = parseInt(document.getElementById('mainstat'));
-		//var equiplist = document.getElementById('equipPStat');
-		//var arcanestat = document.getElementById('arcane'); //placeholder 
-		//var equipName = equipStat.getElementsByTagName('input');
+		var mainstat = parseInt(document.getElementById('mainstat').value);
+		var arcanestat = parseInt(document.getElementById('arcane').value); 
+
+		var equipPStat = document.getElementById('equipPStat');
+		var equipPStatDiv = equipPStat.getElementsByTagName('div');
+		var equipName = divToInputArray(equipPStatDiv);
+
 		for (var i = 0; i < equipName.length; i++) {
 			totalPStat = totalPStat + parseInt(equipName[i].value);
 		}
-
 		var xenonlink = parseInt(document.querySelector('input[name = "Xenonlink"]:checked').value);
 
 		totalPStat = totalPStat + (xenonlink * 5);
-
 		return Math.ceil((mainstat-arcanestat)/(1+(totalPStat/100)));
 	}
 
@@ -223,6 +256,13 @@
 	window.onload = function () {
 		document.getElementById('calculate').onclick = calcRange;
 		document.getElementById('class').onchange = changeClass;
+		document.getElementById('mainstat').onchange = function(){
+			document.getElementById('estmainstat').value = totalBaseStat();
+		}
+		document.getElementById('arcane').onchange = function(){
+			document.getElementById('estmainstat').value = totalBaseStat();
+		}
+		populateMenus();
 	};
 
 })();

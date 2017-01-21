@@ -7,7 +7,7 @@ wepMult["oneHandSwordExplorer"] = 1.30; // <--- explorer multiplier
 wepMult["twoHandSword"] = 1.34;
 wepMult["twoHandSwordExplorer"] = 1.44;
 wepMult["oneHandAxe"] = 1.20;
-wepMult["oneHandAxeExplorer"] = 1.30; // <--- explorer multiplier (?)
+wepMult["oneHandAxeExplorer"] = 1.30;
 wepMult["twoHandAxe"] = 1.44;  // <--- explorer multiplier (?)
 wepMult["oneHandBlunt"] = 1.20;
 wepMult["twoHandBlunt"] = 1.34;
@@ -138,3 +138,7 @@ xenonMultilateral[3] = 15;
 xenonMultilateral[4] = 25;
 xenonMultilateral[5] = 35;
 xenonMultilateral[6] = 40;
+
+// Weapon and Secondary Lines
+wepsecLines = [["%M/Attack", "pAtt"], ["%IED", "IED"], ["%Boss", "Boss"], ["%Damage", "pDmg"], ["%Crit", "critRate"], ["Other", "Other"]];
+gloveLines = [["%Critical Damage", "critDmg"], ["%Allstat", "pAllStat"], ["%Stat", "pStat"], ["Other", "Other"]];

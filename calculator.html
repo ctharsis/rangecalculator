@@ -1,59 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link href="stylesheet.css" type="text/css" rel="stylesheet" />
-		<script src="../rangecalculator/data/values.js" type="text/javascript"></script>
-		<script src="../rangecalculator/data/masterydata.js" type="text/javascript"></script>
-		<script src="script.js" type="text/javascript"></script>
-		<title>Maplestory Range Calculator</title>
-	</head>
-	<body>
-		<!-- equipment attack -->
-		<form id="form1">
-			<fieldset id="equipAtt">
-				<legend>Equip M/Attack: (include potentials)</legend>
-				Weapon: <input id="weapon" type="number" value="0"><br />
-				Secondary/Shield: <input id="secondary" type="number" value="0"><br />
-				Emblem: <input id="emblem" type="number" value="0"><br />
-				Ring1: <input id="ring1" type="number" value="0"><br />
-				Ring2: <input id="ring2" type="number" value="0"><br />
-				Ring3: <input id="ring3" type="number" value="0"><br />
-				Ring4: <input id="ring4" type="number" value="0"><br />
-				Pocket: <input id="pocket" type="number" value="0"><br />
-				Pendant1: <input id="pendant1" type="number" value="0"><br />
-				Pendant2: <input id="pendant2" type="number" value="0"><br />
-				Belt: <input id="belt" type="number" value="0"><br />
-				Hat: <input id="hat" type="number" value="0"><br />
-				Face: <input id="face" type="number" value="0"><br />
-				Eye: <input id="eye" type="number" value="0"><br />
-				Top: <input id="top" type="number" value="0"><br />
-				Bottom: <input id="bottom" type="number" value="0"><br />
-				Boots: <input id="boots" type="number" value="0"><br />
-				Earrings: <input id="earrings" type="number" value="0"><br />
-				Shoulder: <input id="shoulder" type="number"value="0"><br />
-				Gloves: <input id="gloves" type="number" value="0"><br />
-				Badge: <input id="badge" type="number" value="0"><br />
-				Medal: <input id="medal" type="number" value="0"><br />
-				Cape: <input id="cape" type="number" value="0"><br />
-				Heart: <input id="heart" type="number" value="0"><br />
-				
-				Totem1: <input id="totem1" type="number" value="0"><br />
-				Totem2: <input id="totem2" type="number" value="0"><br />
-				Totem3: <input id="totem3" type="number" value="0"><br />
-				
-				Title: <input id="title" type="number" value="0"><br />
-				Projectiles: <input id="projectile" type="number" value="0"><br />
-			</fieldset>
-			<fieldset id="equippDmg">
-				<legend>% Damage:</legend>
-				Weapon: <input id="weaponDmg" type="number" value="0"><br />
-				Secondary/Shield: <input id="secondaryDmg" type="number" value="0"><br />
-				Emblem: <input id="emblemDmg" type="number" value="0"><br />
-				Nebulite: <input type="number" value="0"><br />
-			</fieldset>
-		</form>
-		<form id="form2">
+<head>
+	<link href="stylesheet.css" type="text/css" rel="stylesheet" />
+	<script src="../rangecalculator/data/values.js" type="text/javascript"></script>
+	<script src="../rangecalculator/data/masterydata.js" type="text/javascript"></script>
+	<script src="script.js" type="text/javascript"></script>
+	<title>Maplestory Range Calculator</title>
+</head>
+<body>
+	<div>
+		<form>
 			<!-- choose your class -->
+			<fieldset>
+				<legend>Basic Info</legend>
+				Character Level: <input id="charLevel" type="text" value="0"><br />
+				<label><input id="nonReboot" type="radio" name="reboot" value="0" checked />Non-Reboot</label>
+				<label><input id="reboot" type="radio" name="reboot" value="1" />Reboot</label>
+			</fieldset>	
 			<fieldset>
 				<legend>Class</legend>
 				<select id="class">
@@ -96,27 +59,246 @@
 					<option value="xenon">Xenon</option>
 				</select>
 			</fieldset>
-			<!-- main and sub stat-->
-			<fieldset id="regularStat">
-				<legend>Stats (STR/DEX/INT/LUK):</legend>
-				<label id="main">Main: <input id="mainstat" type="number"><br /></label>
-				<label id="sub">Sub: <input id="substat" type="number"><br /></label>
-			</fieldset>
-			<fieldset id="xenonStat" style="display:none">
-				<legend>Stats (STR/DEX/LUK):</legend>
-				<p>
-					Select the Multilateral option for which your BASE stats equal<br />
-					or exceed the listed value eg. if you have 330 Str, Dex AND Luk,<br />
-					select STR/DEX/LUK = 330+; if you have 150 Str/Dex/Luk,<br />
-					select STR/DEX/LUK = 150+<br /><br />
+		</form>
+	</div>
+	<div>
+		<form>
+			<div class="column">
+				<fieldset id="equipAtt">
+					<legend>Equip M/Attack: (include potentials)</legend>
+					<div class="column">
+						Weapon: <input type="number" value="0"><br />
+						Secondary: <input type="number" value="0"><br />
+						Emblem: <input type="number" value="0"><br />
+						Ring1: <input type="number" value="0"><br />
+						Ring2: <input type="number" value="0"><br />
+						Ring3: <input type="number" value="0"><br />
+						Ring4: <input type="number" value="0"><br />
+						Pocket: <input type="number" value="0"><br />
+						Pendant1: <input type="number" value="0"><br />
+						Pendant2: <input type="number" value="0"><br />
+						Belt: <input type="number" value="0"><br />
+						Hat: <input type="number" value="0"><br />
+						Face: <input type="number" value="0"><br />
+						Eye: <input type="number" value="0"><br />
+						Top: <input type="number" value="0"><br />
+					</div>
+					<div class="column">
+						Bottom: <input type="number" value="0"><br />
+						Boots: <input type="number" value="0"><br />
+						Earrings: <input type="number" value="0"><br />
+						Shoulder: <input type="number"value="0"><br />
+						Gloves: <input type="number" value="0"><br />
+						Badge: <input type="number" value="0"><br />
+						Medal: <input type="number" value="0"><br />
+						Cape: <input type="number" value="0"><br />
+						Heart: <input type="number" value="0"><br />
 
-					Note: Multilateral is based on your BASE Str, Dex and Luk. This is<br />
-					the number that appears before the parenthesis on your stat window.
-				</p>
-				<label>Str: <input type="number"><br /></label>
-				<label>Dex: <input type="number"><br /></label>
-				<label>Luk: <input type="number"><br /></label>
-				<label>Multilateral: <select id="xenonMultilateralSelect">
+						Totem1: <input type="number" value="0"><br />
+						Totem2: <input type="number" value="0"><br />
+						Totem3: <input type="number" value="0"><br />
+
+						Title: <input type="number" value="0"><br />
+						Projectiles: <input type="number" value="0"><br />
+						Soul: <input type="number" value="0"><br />
+					</div>
+				</fieldset>
+			</div>
+			<div class="column">
+				<fieldset id="equipPStat">
+					<legend>Equip %Stat: (include bonus potentials)</legend>
+					<div class="column">
+						Weapon: <input type="number" value="0"><br />
+						Secondary: <input type="number" value="0"><br />
+						Emblem: <input type="number" value="0"><br />
+						Ring1: <input type="number" value="0"><br />
+						Ring2: <input type="number" value="0"><br />
+						Ring3: <input type="number" value="0"><br />
+						Ring4: <input type="number" value="0"><br />
+						Pocket: <input type="number" value="0"><br />
+						Pendant1: <input type="number" value="0"><br />
+						Pendant2: <input type="number" value="0"><br />
+						Belt: <input type="number" value="0"><br />
+						Hat: <input type="number" value="0"><br />
+						Face: <input type="number" value="0"><br />
+						Eye: <input type="number" value="0"><br />
+						Top: <input type="number" value="0"><br />
+					</div>
+					<div class="column">
+						Bottom: <input type="number" value="0"><br />
+						Boots: <input type="number" value="0"><br />
+						Earrings: <input type="number" value="0"><br />
+						Shoulder: <input type="number"value="0"><br />
+						Badge: <input type="number" value="0"><br />
+						Medal: <input type="number" value="0"><br />
+						Cape: <input type="number" value="0"><br />
+						Heart: <input type="number" value="0"><br />
+
+						Totem1: <input type="number" value="0"><br />
+						Totem2: <input type="number" value="0"><br />
+						Totem3: <input type="number" value="0"><br />
+
+						Soul: <input type="number" value="0"><br />
+					</div>
+				</fieldset>
+			</div>
+		</form>
+	</div>
+	<div>
+		<!-- set bonus attack -->
+		<fieldset id="setbonusAtt">
+			<legend>Set Bonus Attack: (Like Gollux, CRA, etc.)</legend>
+			<div class="column2">
+				<input type="text" placeholder="Set Label 1"> <input id="set1" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 5"> <input id="set5" type="number" name="setAtt" value="0"><br />
+			</div>
+			<div class="column2">
+				<input type="text" placeholder="Set Label 2"> <input id="set2" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 6"> <input id="set6" type="number" name="setAtt" value="0"><br />
+			</div>
+			<div class="column2">
+				<input type="text" placeholder="Set Label 3"> <input id="set3" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 7"> <input id="set7" type="number" name="setAtt" value="0"><br />
+			</div>
+			<div class="column2">
+				<input type="text" placeholder="Set Label 4"> <input id="set4" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 8"> <input id="set8" type="number" name="setAtt" value="0"><br />
+			</div>
+		</fieldset>
+	</div>
+	<div>
+		<div class="column2">
+			<form>
+				<fieldset id="weaponLines">
+					<legend>Weapon:</legend>
+					<input type="number" value="0">
+					<select id="wepLine1">
+					</select></br>
+					<input type="number" value="0">
+					<select id="wepLine2">
+					</select></br>
+					<input type="number" value="0">
+					<select id="wepLine3">
+					</select>
+				</fieldset>
+			</form>
+		</div>
+		<div class="column2">
+			<form>
+				<fieldset id="secondaryLines">
+					<legend>Secondary:</legend>
+					<input type="number" value="0">
+					<select id="secLine1">
+					</select></br>
+					<input type="number" value="0">
+					<select id="secLine2">
+					</select></br>
+					<input type="number" value="0">
+					<select id="secLine3">
+					</select>
+				</fieldset>
+			</form>
+		</div>
+		<div class="column2">
+			<form>
+				<fieldset id="emblemLines">
+					<legend>Emblem:</legend>
+					<input type="number" value="0">
+					<select id="embLine1">
+					</select></br>
+					<input type="number" value="0">
+					<select id="embLine2">
+					</select></br>
+					<input type="number" value="0">
+					<select id="embLine3">
+					</select>
+				</fieldset>
+			</form>
+		</div>
+		<div class="column2">
+			<form>
+				<fieldset id="gloveLines">
+					<legend>Gloves:</legend>
+					<input type="number" value="0">
+					<select id="gloLine1">
+					</select></br>
+					<input type="number" value="0">
+					<select id="gloLine2">
+					</select></br>
+					<input type="number" value="0">
+					<select id="gloLine3">
+					</select>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="container">
+		<div class="column2">
+			<!-- link skills -->
+			<fieldset>
+				<legend>Link Skills</legend>
+				<form>
+					<legend>Demon Avenger</legend>
+					<label><input type="radio" name="DAlink" value="0" checked />None</label>
+					<label><input type="radio" name="DAlink" value="1" />Lv 1</label>
+					<label><input type="radio" name="DAlink" value="2" />Lv 2</label>
+					<label><input type="radio" name="DAlink" value="3" />Lv 3</label>
+				</form>
+				<form id="Kannalink">
+					<legend>Kanna</legend>
+					<label><input type="radio" name="Kannalink" value="0" checked />None</label>
+					<label><input type="radio" name="Kannalink" value="1" />Lv 1</label>
+					<label><input type="radio" name="Kannalink" value="2" />Lv 2</label>
+				</form>
+				<form id="Xenonlink">
+					<legend>Xenon</legend>
+					<label><input type="radio" name="Xenonlink" value="0" checked />None</label>
+					<label><input type="radio" name="Xenonlink" value="1" />Lv 1</label>
+					<label><input type="radio" name="Xenonlink" value="2" />Lv 2</label>
+				</form>
+				<form>
+					<legend>Hayato</legend>
+					<label><input id="H1" type="checkbox" name="size" value="1" unchecked />Level 1</label>
+				</form>
+			</fieldset>
+		</div>
+		<div class="column2">
+			<fieldset>
+				<legend>Inner Ability</legend>
+				<input type="number" value="0">
+				<select id="IALine1">
+				</select></br>
+				<input type="number" value="0">
+				<select id="IALine1">
+				</select></br>
+				<input type="number" value="0">
+				<select id="IALine1">
+				</select>
+			</fieldset>
+		</div>
+		<div class="column2">
+			<fieldset>
+				<legend>Codex</legend>
+			</fieldset>
+		</div>
+		<div class="column2">
+			<fieldset>
+				<legend>Class Exclusive:</legend>
+				<fieldset id="xenonStat" style="display:none">
+					<legend>Stats (STR/DEX/LUK):</legend>
+					<p>
+						Select the Multilateral option for which your BASE stats equal<br />
+						or exceed the listed value eg. if you have 330 Str, Dex AND Luk,<br />
+						select STR/DEX/LUK = 330+; if you have 150 Str/Dex/Luk,<br />
+						select STR/DEX/LUK = 150+<br /><br />
+
+						Note: Multilateral is based on your BASE Str, Dex and Luk. This is<br />
+						the number that appears before the parenthesis on your stat window.
+					</p>
+					<label>Str: <input type="number"><br /></label>
+					<label>Dex: <input type="number"><br /></label>
+					<label>Luk: <input type="number"><br /></label>
+					<label>Multilateral: <select id="xenonMultilateralSelect">
 						<option value="0">None</option>
 						<option value="1">STR/DEX/LUK = 20+</option>
 						<option value="2">STR/DEX/LUK = 40+</option>
@@ -127,23 +309,64 @@
 					</select>
 				</label>
 			</fieldset>
+		</fieldset>
+	</div>
+</div>
+<div class="container">
+	<div class="column2">
+		<fieldset>
+			<legend>Other Stats:</legend>
+			Hyper %Dmg: <input id="hyperDmg" type="number" value="0"><br />
+			Crit Rate: <input id="critRate" type="number" value="0"><br />
+			Crit Damage: <input id="critDmg" type="number" value="0"><br />
+			Boss Damage: <input id="bossDmg" type="number" value="0"><br />
+		</fieldset>
+	</div>
+	<div class="column2">
+		<fieldset>
+			<legend>% Final Damage</legend>
+			Final Damage: <input id="finalDmg" type="number" step="0.1" value="0"><br />
+		</fieldset>
+	</div>
+	<div class="column2"><!-- main and sub stat-->
+		<fieldset>
+			<legend>Unbuffed Stats:</legend>
+			<label>Main: <input id="mainstat" type="number"><br /></label>
+			<label>Secondary: <input id="substat" type="number"><br /></label>
+			<div style="display:none"><label>Ternary: <input id="ternarystat" type="number"><br /></label></div>
+			<label>Flat Stat: <input id="arcane" type="number" value="0"><br /></label>
+		</fieldset>
+	</div>
+	<div class="column2">
+		<fieldset>
+			<legend>Estimated Base Stats:</legend>
+			<label>Main: <input id="estmainstat" type="number" readonly><br /></label>
+			<label>Secondary: <input id="estsubstat" type="number" disabled><br /></label>
+			<div style="display:none"><label>Ternary: <input id="ternarystat" type="number" disabled><br /></label></div>
+		</fieldset>
+	</div>
+</div>
+<form id="form1">
+		<!--
+		<fieldset id="equippDmg">
+			<legend>% Damage:</legend>
+			Weapon: <input id="weaponDmg" type="number" value="0"><br />
+			Secondary/Shield: <input id="secondaryDmg" type="number" value="0"><br />
+			Emblem: <input id="emblemDmg" type="number" value="0"><br />
+			Nebulite: <input type="number" value="0"><br />
+		</fieldset>-->
+	</form>
+	<form id="form2">
+
+		
+		
 			<!-- Coming sometime in the future.
 			<fieldset id="demonAvengerStat" style="display:none">
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
 				<label id="main">Main: <input id="mainstat" type="number"><br /></label>
 				<label id="sub">Sub: <input id="substat" type="number"><br /></label>
 			</fieldset>-->
-			<!-- set bonus attack -->
-			<fieldset id="setbonusAtt">
-				<legend>Set Bonus Attack:</legend>
-				<p>Set bonuses such as Gollux/CRA/Others</p>
-				set1: <input id="set1" type="number" value="0"><br />
-				set2: <input id="set2" type="number" value="0"><br />
-				set3: <input id="set3" type="number" value="0"><br />
-				set4: <input id="set4" type="number" value="0"><br />
-				set5: <input id="set5" type="number" value="0"><br />
-				set6: <input id="set6" type="number" value="0"><br />
-			</fieldset>
+			
 			<!-- other sources of attack-->
 			<fieldset id="otherAtt">
 				<legend>Other sources of Attack:</legend>
@@ -163,7 +386,7 @@
 				Other sources (eg. Kanna Ele Blessing, Codex): <input id="other" type="number" value="0"><br />
 				<label id="kocLabel" style="display:none">Elemental Expert<input id="kocExpert" style="display:none" type="checkbox" value="1" unchecked /></label><br />
 			</fieldset>
-			<!-- weapon/secondary/emblem %att-->	
+			<!-- weapon/secondary/emblem %att	
 			<fieldset id="percentAtt">
 				<legend> % Attack: (including bonus pot)</legend>
 				Weapon: <input id="wepPercentAtt" type="number" value="0"><br />
@@ -171,65 +394,17 @@
 				Emblem: <input id="emblemPercentAtt" type="number" value="0"><br />
 				Nebulite: <input type="number" value="0"><br />
 				Codex: <input type="number" value="0"><br />
-			</fieldset>			
-			<!-- link skills -->
-			<fieldset>
-				<legend>Link Skills</legend>
-				<form>
-					<legend>Demon Avenger</legend>
-					<label><input type="radio" name="DAlink" value="0" checked />None</label>
-					<label><input type="radio" name="DAlink" value="1" />Level 1</label>
-					<label><input type="radio" name="DAlink" value="2" />Level 2</label>
-					<label><input type="radio" name="DAlink" value="3" />Level 3</label>
-				</form>
-				<form id="Kannalink">
-					<legend>Kanna</legend>
-					<label><input type="radio" name="Kannalink" value="0" checked />None</label>
-					<label><input type="radio" name="Kannalink" value="1" />Level 1</label>
-					<label><input type="radio" name="Kannalink" value="2" />Level 2</label>
-				</form>
-				<form id="Xenonlink">
-					<legend>Xenon</legend>
-					<label><input type="radio" name="Xenonlink" value="0" checked />None</label>
-					<label><input type="radio" name="Xenonlink" value="1" />Level 1</label>
-					<label><input type="radio" name="Xenonlink" value="2" />Level 2</label>
-				</form>
-				<form>
-					<legend>Hayato</legend>
-					<label><input id="H1" type="checkbox" name="size" value="1" unchecked />Level 1</label>
-				</form>
-			</fieldset>
+			</fieldset>	-->		
+			
 		</form>
 		<form id="form3">
-			<!-- reboot or not reboot-->
-			<fieldset>
-				<legend>Other</legend>
-				Character Level: <input id="charLevel" type="text" value="0"><br />
-				<label><input id="nonReboot" type="radio" name="reboot" value="0" checked />Non-Reboot</label>
-				<label><input id="reboot" type="radio" name="reboot" value="1" />Reboot</label>
-			</fieldset>	
-			<fieldset>
-				<legend>Hyper Stat % Damage</legend>
-					% Damage: <input id="hyperDmg" type="number" value="0"><br />
-			</fieldset>
-			<fieldset>
-				<legend>% Crit</legend>
-					Crit Rate: <input id="critRate" type="number" value="0"><br />
-					Crit Damage: <input id="critDmg" type="number" value="0"><br />
-			</fieldset>
-			<fieldset>
-				<legend>% Boss Damage</legend>
-					Boss Damage: <input id="bossDmg" type="number" value="0"><br />
-			</fieldset>
-			<fieldset>
-				<legend>% Final Damage</legend>
-					Final Damage: <input id="finalDmg" type="number" step="0.1" value="0"><br />
-			</fieldset>
+			
+			
 			<div>
 				<h2>Your visual range is: <br /><span id="resultRange"></span></h2>
 				<h2>Your range including crit is: <br /><span id="critRange"></span></h2>
 				<h2>Your range including boss and crit is: <br /><span id="bossRange"></span></h2>
-			<!--	<h3>1% of your Main Stat is: <span id="oneper"></span></h3> -->
+				<!--	<h3>1% of your Main Stat is: <span id="oneper"></span></h3> -->
 			</div>
 		</form>
 		<div id="info">
@@ -263,5 +438,5 @@
 			</ul>
 		</div>
 	</body>
-</html>
+	</html>
 
