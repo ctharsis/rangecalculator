@@ -3,6 +3,7 @@
 ## To use go to this link: https://ctharsis.github.io/rangecalculator/calculator.html
 
 ## Currently supported classes:
+- Angelic Buster
 - Aran
 - Bishop
 - Blaze Wizard
