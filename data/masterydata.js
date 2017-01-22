@@ -12,6 +12,7 @@ masteryData["dawnwarrior1hs"] = 0.9;
 masteryData["dawnwarrior2hs"] = 0.9;
 masteryData["demonslayer1ha"] = 0.9;
 masteryData["demonslayer1hb"] = 0.9;
+masteryData["dualblade"] = 0.9;
 masteryData["evanstaff"] = 0.95;
 masteryData["evanwand"] = 0.95;
 masteryData["firepoisonstaff"] = 0.95;
