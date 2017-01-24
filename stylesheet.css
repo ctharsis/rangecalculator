@@ -38,7 +38,7 @@ legend {
 	float: left;
 }
 
-.column {
+.column1 {
 	width: 50%;
 }
 
@@ -50,11 +50,14 @@ legend {
 	width:70px;
 }
 
-.column, .column2 {
+.column1, .column2 {
 	float:left;
 }
-
+/*
 .container, .container > .column2 {
 	display:flex;
-}
+} */
 
+.container, .container > .column1, .container > .column2 {
+    display:flex;
+}

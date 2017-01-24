@@ -9,8 +9,8 @@
 </head>
 <body>
 	<h4>[NOTICE] Sorry, we are currently restructing and adding new features, so calculator is unusable </h4>
-	<div>
-		<form>
+	<div class="container">
+		<div class="column1">	
 			<!-- choose your class -->
 			<fieldset>
 				<legend>Basic Info</legend>
@@ -18,6 +18,8 @@
 				<label><input id="nonReboot" type="radio" name="reboot" value="0" checked />Non-Reboot</label>
 				<label><input id="reboot" type="radio" name="reboot" value="1" />Reboot</label>
 			</fieldset>	
+		</div>
+		<div class="column1">
 			<fieldset>
 				<legend>Class</legend>
 				<select id="class">
@@ -60,14 +62,24 @@
 					<option value="xenon">Xenon</option>
 				</select>
 			</fieldset>
-		</form>
+		</div>
+		<div class="column1">
+			<fieldset>
+			<!-- main and substat-->
+				<legend>Unbuffed Stats (STR/DEX/LUK/INT):</legend>
+				<label>Main: <input id="mainstat" type="number"><br /></label>
+				<label>Secondary: <input id="substat" type="number"><br /></label>
+				<div style="display:none"><label>Ternary: <input id="ternarystat" type="number"><br /></label></div>
+				<label>Flat Stat: <input id="arcane" type="number" value="0"><br /></label>
+			</fieldset>	
+		</div>
 	</div>
 	<div>
 		<form>
-			<div class="column">
+			<div class="column1">
 				<fieldset id="equipAtt">
 					<legend>Equip M/Attack (ex: + 12 Attack, include potentials): </legend>
-					<div class="column">
+					<div class="column1">
 						Weapon: <input type="number" value="0"><br />
 						Secondary: <input type="number" value="0"><br />
 						Emblem: <input type="number" value="0"><br />
@@ -84,7 +96,7 @@
 						Eye: <input type="number" value="0"><br />
 						Top: <input type="number" value="0"><br />
 					</div>
-					<div class="column">
+					<div class="column1">
 						Bottom: <input type="number" value="0"><br />
 						Boots: <input type="number" value="0"><br />
 						Earrings: <input type="number" value="0"><br />
@@ -105,10 +117,10 @@
 					</div>
 				</fieldset>
 			</div>
-			<div class="column">
+			<div class="column1">
 				<fieldset id="equipPStat">
 					<legend>Equip %Stat (STR/DEX/LUK/INT, include bonus potentials): </legend>
-					<div class="column">
+					<div class="column1">
 						Weapon: <input type="number" value="0"><br />
 						Secondary: <input type="number" value="0"><br />
 						Emblem: <input type="number" value="0"><br />
@@ -125,7 +137,7 @@
 						Eye: <input type="number" value="0"><br />
 						Top: <input type="number" value="0"><br />
 					</div>
-					<div class="column">
+					<div class="column1">
 						Bottom: <input type="number" value="0"><br />
 						Boots: <input type="number" value="0"><br />
 						Earrings: <input type="number" value="0"><br />
@@ -329,16 +341,6 @@
 			Final Damage: <input id="finalDmg" type="number" step="0.1" value="0"><br />
 		</fieldset>
 	</div>
-	<!-- main and sub stat-->
-	<div class="column2">
-		<fieldset>
-			<legend>Unbuffed Stats (STR/DEX/LUK/INT):</legend>
-			<label>Main: <input id="mainstat" type="number"><br /></label>
-			<label>Secondary: <input id="substat" type="number"><br /></label>
-			<div style="display:none"><label>Ternary: <input id="ternarystat" type="number"><br /></label></div>
-			<label>Flat Stat: <input id="arcane" type="number" value="0"><br /></label>
-		</fieldset>
-	</div>
 	<div class="column2">
 		<fieldset>
 			<legend>Estimated Base Stats:</legend>
@@ -360,8 +362,6 @@
 	</form>
 	<form id="form2">
 
-		
-		
 			<!-- Coming sometime in the future.
 			<fieldset id="demonAvengerStat" style="display:none">
 				<legend>Stats (STR/DEX/INT/LUK):</legend>
