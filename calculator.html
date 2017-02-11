@@ -8,7 +8,32 @@
 	<title>Maplestory Range Calculator</title>
 </head>
 <body>
-	<h4>[NOTICE] Sorry, we are currently restructing and adding new features, so calculator is unusable </h4>
+	<div id="e-container">
+	<div class="container">
+		<div class="column1">
+			<h3>Assumptions:</h3>
+			<ul>
+				<li>At least level 140</li>
+				<li>All Skill Points used</li>
+				<li>Attack, % Attack and % Damage from passive skills included.</li>
+				<li>Cygnus Knights: Elemental Expert is unlocked. (Mihile included)</li>
+				<li>Evan: you have at least 30% MP (Dragon Fury)</li>
+				<li>Kaiser: you are in defensive stance (add 45 attack for offensive stance).</li>
+				<li><strong>Passive stats from HYPER SKILLS (not hyper stats) are ignored.</strong></li>
+				<li><strong>This is your clean range. (no buffs)</strong></li>
+			</ul>
+		</div>
+		<div class="column1">
+			<h3>Notes:</h3>
+			<ul>
+				<li><strong>All fields must have a value, if you do not have a number, put 0</strong></li>
+				<li>All Reboot Characters have a 'Hidden' 5 Magic/Attack</li>
+				<li>Range may be off by 1 or 2, because of Nexon Spaghetti&trade; code</li>
+				<li>The following classes have a beginner skill that grants additional attack.<br/> Put the additional attack under Other sources:<br/>Aran, Evan, Kanna</li>
+				<li>If Final Damage is red in the stat window, it is probably rounded some way<br/>or another. If you class is listed here, use the provided final damage number.<br/>Blaze Wizard: 87.5</li>
+			</ul>
+		</div>
+	</div>
 	<div class="container">
 		<div class="column1">	
 			<!-- choose your class -->
@@ -48,7 +73,7 @@
 					<option value="icelightningstaff">Ice/Lightning Archmage (Staff)</option>
 					<option value="icelightningwand">Ice/Lightning Archmage (Wand)</option>
 					<option value="kaiser">Kaiser</option>
-					<option value="kanna">Kanna</option>
+					<!--<option value="kanna">Kanna</option>-->
 					<option value="kinesis">Kinesis</option>
 					<option value="luminous">Luminous</option>
 					<option value="mercedes">Mercedes</option>
@@ -59,18 +84,18 @@
 					<option value="shade">Shade</option>
 					<option value="thunderbreaker">Thunder Breaker</option>
 					<option value="windarcher">Wind Archer</option>
-					<option value="xenon">Xenon</option>
+					<!--<option value="xenon">Xenon</option>-->
 				</select>
 			</fieldset>
 		</div>
 		<div class="column1">
-			<fieldset>
-			<!-- main and substat-->
+			<fieldset >
+				<!-- main and substat-->
 				<legend>Unbuffed Stats (STR/DEX/LUK/INT):</legend>
 				<label>Main: <input id="mainstat" type="number"><br /></label>
 				<label>Secondary: <input id="substat" type="number"><br /></label>
 				<div style="display:none"><label>Ternary: <input id="ternarystat" type="number"><br /></label></div>
-				<label>Flat Stat: <input id="arcane" type="number" value="0"><br /></label>
+				<label>Arcane Stat: <input id="arcane" type="number" value="0"><br /></label>
 			</fieldset>	
 		</div>
 	</div>
@@ -78,7 +103,7 @@
 		<form>
 			<div class="column1">
 				<fieldset id="equipAtt">
-					<legend>Equip M/Attack (ex: + 12 Attack, include potentials): </legend>
+					<legend>Equip M/Attack (ex: + 12 Attack, include potentials and nebs): </legend>
 					<div class="column1">
 						Weapon: <input type="number" value="0"><br />
 						Secondary: <input type="number" value="0"><br />
@@ -119,7 +144,7 @@
 			</div>
 			<div class="column1">
 				<fieldset id="equipPStat">
-					<legend>Equip %Stat (STR/DEX/LUK/INT, include bonus potentials): </legend>
+					<legend>Equip %Stat (STR/DEX/LUK/INT, include potentials and nebs): </legend>
 					<div class="column1">
 						Weapon: <input type="number" value="0"><br />
 						Secondary: <input type="number" value="0"><br />
@@ -157,18 +182,18 @@
 			</div>
 		</form>
 	</div>
-		<div>
+	<div>
 		<div class="column2">
 			<form>
 				<fieldset id="weaponLines">
 					<legend>Weapon Potential:</legend>
-					<input type="number" value="0">
+					<input id="wepLineInput1" type="number" value="0">
 					<select id="wepLine1">
 					</select></br>
-					<input type="number" value="0">
+					<input id="wepLineInput2" type="number" value="0">
 					<select id="wepLine2">
 					</select></br>
-					<input type="number" value="0">
+					<input id="wepLineInput3" type="number" value="0">
 					<select id="wepLine3">
 					</select>
 				</fieldset>
@@ -178,13 +203,13 @@
 			<form>
 				<fieldset id="secondaryLines">
 					<legend>Secondary Potential:</legend>
-					<input type="number" value="0">
+					<input id="secLineInput1" type="number" value="0">
 					<select id="secLine1">
 					</select></br>
-					<input type="number" value="0">
+					<input id="secLineInput2" type="number" value="0">
 					<select id="secLine2">
 					</select></br>
-					<input type="number" value="0">
+					<input id="secLineInput3" type="number" value="0">
 					<select id="secLine3">
 					</select>
 				</fieldset>
@@ -194,13 +219,13 @@
 			<form>
 				<fieldset id="emblemLines">
 					<legend>Emblem Potential:</legend>
-					<input type="number" value="0">
+					<input id="embLineInput1" type="number" value="0">
 					<select id="embLine1">
 					</select></br>
-					<input type="number" value="0">
+					<input id="embLineInput2" type="number" value="0">
 					<select id="embLine2">
 					</select></br>
-					<input type="number" value="0">
+					<input id="embLineInput3" type="number" value="0">
 					<select id="embLine3">
 					</select>
 				</fieldset>
@@ -229,18 +254,18 @@
 			<legend>Set Bonus Attack (Gollux, CRA, etc.): </legend>
 			<div class="column2">
 				<input type="text" placeholder="Set Label 1"> <input id="set1" type="number" name="setAtt" value="0"><br />
-				<input type="text" placeholder="Set Label 5"> <input id="set5" type="number" name="setAtt" value="0"><br />
-			</div>
-			<div class="column2">
 				<input type="text" placeholder="Set Label 2"> <input id="set2" type="number" name="setAtt" value="0"><br />
-				<input type="text" placeholder="Set Label 6"> <input id="set6" type="number" name="setAtt" value="0"><br />
 			</div>
 			<div class="column2">
 				<input type="text" placeholder="Set Label 3"> <input id="set3" type="number" name="setAtt" value="0"><br />
-				<input type="text" placeholder="Set Label 7"> <input id="set7" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 4"> <input id="set4" type="number" name="setAtt" value="0"><br />
 			</div>
 			<div class="column2">
-				<input type="text" placeholder="Set Label 4"> <input id="set4" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 5"> <input id="set5" type="number" name="setAtt" value="0"><br />
+				<input type="text" placeholder="Set Label 6"> <input id="set6" type="number" name="setAtt" value="0"><br />
+			</div>
+			<div class="column2">
+				<input type="text" placeholder="Set Label 7"> <input id="set7" type="number" name="setAtt" value="0"><br />
 				<input type="text" placeholder="Set Label 8"> <input id="set8" type="number" name="setAtt" value="0"><br />
 			</div>
 		</fieldset>
@@ -276,16 +301,16 @@
 			</fieldset>
 		</div>
 		<div class="column2">
-			<fieldset>
+			<fieldset id="innerability">
 				<legend>Inner Ability</legend>
-				<input type="number" value="0">
+				<input id="IALineInput1" type="number" value="0">
 				<select id="IALine1">
 				</select></br>
-				<input type="number" value="0">
-				<select id="IALine1">
+				<input id="IALineInput2" type="number" value="0">
+				<select id="IALine2">
 				</select></br>
-				<input type="number" value="0">
-				<select id="IALine1">
+				<input id="IALineInput3" type="number" value="0">
+				<select id="IALine3">
 				</select>
 			</fieldset>
 		</div>
@@ -322,123 +347,68 @@
 					</select>
 				</label>
 			</fieldset>
+			<label id="kocLabel" style="display:none">Elemental Expert<input id="kocExpert" style="display:none" type="checkbox" value="1" unchecked /></label><br />
 		</fieldset>
 	</div>
 </div>
 <div class="container">
 	<div class="column2">
 		<fieldset>
-			<legend>Hyper Stats:</legend>
-			Hyper %Dmg: <input id="hyperDmg" type="number" value="0"><br />
+			<legend>Stat Window: </legend>
 			Crit Rate: <input id="critRate" type="number" value="0"><br />
 			Crit Damage: <input id="critDmg" type="number" value="0"><br />
 			Boss Damage: <input id="bossDmg" type="number" value="0"><br />
-		</fieldset>
-	</div>
-	<div class="column2">
-		<fieldset>
-			<legend>% Final Damage</legend>
 			Final Damage: <input id="finalDmg" type="number" step="0.1" value="0"><br />
 		</fieldset>
 	</div>
 	<div class="column2">
 		<fieldset>
+			<legend>Other Stats:</legend>
+			Hyper %Dmg: <input id="hyperDmg" type="number" value="0"><br />
+		</fieldset>
+	</div>
+	<div class="column2">
+		<fieldset>
 			<legend>Estimated Base Stats:</legend>
+			<p>This is your stats without % inlcuded</p>
 			<label>Main: <input id="estmainstat" type="number" readonly><br /></label>
 			<label>Secondary: <input id="estsubstat" type="number" disabled><br /></label>
 			<div style="display:none"><label>Ternary: <input id="ternarystat" type="number" disabled><br /></label></div>
 		</fieldset>
 	</div>
-</div>
-<form id="form1">
-		<!--
-		<fieldset id="equippDmg">
-			<legend>% Damage:</legend>
-			Weapon: <input id="weaponDmg" type="number" value="0"><br />
-			Secondary/Shield: <input id="secondaryDmg" type="number" value="0"><br />
-			Emblem: <input id="emblemDmg" type="number" value="0"><br />
-			Nebulite: <input type="number" value="0"><br />
-		</fieldset>-->
-	</form>
-	<form id="form2">
+	<div class="column2">
+		<fieldset>
+			<legend>Others:</legend>
+			<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
+			Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="number" value="0"><br />
+		</fieldset>
+	</div>
 
-			<!-- Coming sometime in the future.
-			<fieldset id="demonAvengerStat" style="display:none">
-				<legend>Stats (STR/DEX/INT/LUK):</legend>
-				<label id="main">Main: <input id="mainstat" type="number"><br /></label>
-				<label id="sub">Sub: <input id="substat" type="number"><br /></label>
-			</fieldset>-->
-			
-			<!-- other sources of attack-->
-			<fieldset id="otherAtt">
-				<legend>Other sources of Attack:</legend>
-				<p>
-					Enter the <strong>higher</strong> value between Blessing of the Fairy <br />
-					and Empress' Blessing. 0 if you do not have either.
-				</p>
-				<p>
-					Enter the total number of attack you get per 10 levels. <br />
-					<strong>eg.</strong> if you have a +1 M/Att per 10 levels line and a <br />
-					+2 M/Att per 10 levels line, enter "3".
-				</p>
-				Inner Ability: <input id="innerAbility" type="number" value="0"><br />
-				Total M/Attack per 10 levels lines: <input id="attPer10" type="number" value="0"><br />
-				<label>Will of the Alliance<input id="alliance" type="checkbox" value="1" unchecked /></label><br />
-				Blessing of the Fairy OR Empress' Blessing: <input id="blessing" type="number" value="0"><br />
-				Other sources (eg. Kanna Ele Blessing, Codex): <input id="other" type="number" value="0"><br />
-				<label id="kocLabel" style="display:none">Elemental Expert<input id="kocExpert" style="display:none" type="checkbox" value="1" unchecked /></label><br />
-			</fieldset>
-			<!-- weapon/secondary/emblem %att	
-			<fieldset id="percentAtt">
-				<legend> % Attack: (including bonus pot)</legend>
-				Weapon: <input id="wepPercentAtt" type="number" value="0"><br />
-				Secondary/Shield: <input id="secondPercentAtt" type="number" value="0"><br />
-				Emblem: <input id="emblemPercentAtt" type="number" value="0"><br />
-				Nebulite: <input type="number" value="0"><br />
-				Codex: <input type="number" value="0"><br />
-			</fieldset>	-->		
-			
-		</form>
-		<form id="form3">
-			
-			
-			<div>
-				<h2>Your visual range is: <br /><span id="resultRange"></span></h2>
-				<h2>Your range including crit is: <br /><span id="critRange"></span></h2>
-				<h2>Your range including boss and crit is: <br /><span id="bossRange"></span></h2>
-				<!--	<h3>1% of your Main Stat is: <span id="oneper"></span></h3> -->
-			</div>
-		</form>
-		<div id="info">
-			<button id="calculate">Calculate</button>	
-			<h3>Assumptions:</h3>
-			<ul>
-				<li>At least level 140</li>
-				<li>All Skill Points used</li>
-				<li>Attack, % Attack and % Damage from passive skills included.</li>
-				<li>Cygnus Knights: Elemental Expert is unlocked. (including Mihile)</li>
-				<li>Evan: you have at least 30% MP (Dragon Fury)</li>
-				<li>Kaiser: you are in defensive stance (add 45 attack for offensive stance).</li>
-				<li><strong>Passive stats from HYPER SKILLS (not hyper stats) are ignored.</strong></li>
-				<li><strong>Character cards are NOT included (yet)</strong></li>
-				<li><strong>This is your clean range. (no buffs)</strong></li>
-			</ul>
-			<h3>Notes:</h3>
-			<ul>
-				<li><strong>All fields must have a value, if you do not have a number, put 0</strong></li>
-				<li>All Reboot Characters have a 'Hidden' 5 Magic/Attack</li>
-				<li>Range may be off by 1 or 2, because of Nexon Spaghetti&trade; code</li>
-				<li>The following classes have a beginner skill that grants additional attack.<br/> Put the additional attack under Other sources:<br/>Aran, Evan, Kanna</li>
-				<li>If Final Damage is red in the stat window, it is probably rounded some way<br/>or another. If you class is listed here, use the provided final damage number.<br/>Blaze Wizard: 87.5</li>
-			</ul>
-			<h3>Dev notes:</h3>
-			<ul>
-				<li>Buffs WIP</li>
-				<li>Adding more classes WIP</li>
-				<li>Appearance WIP</li>
-				<li>Damage calculation WIP</li>
-			</ul>
-		</div>
-	</body>
-	</html>
+</div>
+
+<form id="form2">
+
+	
+
+</form>
+<form id="form3">
+
+
+	<div>
+		<h2>Your visual range is: <br /><span id="resultRange"></span></h2>
+		<h2>Your range including boss and crit is: <br /><span id="bossRange"></span></h2>
+		<h2>1% of your main stat is: <span id="oneper"></span> visual range</h2>
+		<h2>1% of your main stat is: <span id="oneperboss"></span> boss and crit range</h2>
+		<h2>1% of your main stat is: <span id="oneperstat"></span> of your main stat</h2>
+	</div>
+</form>
+<div id="info">
+	<button id="calculate">Calculate</button>	
+</div>
+<div>
+	<p>Drawings by: Em&iuml;ly</p>
+</div>
+</div>
+</body>
+</html>
 

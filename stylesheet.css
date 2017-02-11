@@ -1,7 +1,5 @@
 body {
-	margin-left: auto;
-	margin-right: auto;
-	width: 66.7%;
+	background: url("images/bg.png") no-repeat top;
 }
 
 div {
@@ -24,9 +22,10 @@ legend {
 	font-weight: bold;
 }
 
-#form1 {
-	margin: auto;
-	float: left;
+#e-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 66.7%;
 }
 
 #form2 {

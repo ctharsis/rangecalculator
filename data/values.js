@@ -142,5 +142,6 @@ xenonMultilateral[5] = 35;
 xenonMultilateral[6] = 40;
 
 // Weapon and Secondary Lines
-wepsecLines = [["%M/Attack", "pAtt"], ["%IED", "IED"], ["%Boss", "Boss"], ["%Damage", "pDmg"], ["%Crit", "critRate"], ["Other", "Other"]];
-gloveLines = [["%Critical Damage", "critDmg"], ["%Allstat", "pAllStat"], ["%Stat", "pStat"], ["Other", "Other"]];
+iaLines = [["M/Attack", "att"], ["%Boss", "boss"], ["%Crit", "critRate"]];
+wepsecLines = [["%M/Attack", "pAtt"], ["%IED", "IED"], ["%Boss", "boss"], ["%Damage", "pDmg"], ["%Crit", "critRate"], ["Att per 10lvs", "attp10"], ["Other", "Other"]];
+gloveLines = [["%Crit Damage", "critDmg"], ["%Allstat", "pAllStat"], ["%Stat", "pStat"], ["Other", "Other"]];

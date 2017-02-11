@@ -5,8 +5,13 @@
 // math.round = round
 
 	// Calculates AD
-	function actualDamage(){
-		var statVal = statValue();
+	function actualDamage(range){
+		if (range === "current"){
+			var statVal = statValue();
+		} else if (range === "estimated"){
+			var statVal = xPercentStat(1);
+		}
+		
 		var totalAtt = totalAttack();
 		
 		var className = document.getElementById('class').value;
@@ -17,23 +22,27 @@
 	}
 
 	function bossAndCritDamage(actualdamage, totaldamage){
-		return Math.floor(actualdamage*(1+totaldamage/100+parseInt(document.getElementById('bossDmg').value)/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*((parseInt(document.getElementById('critDmg').value) + 35)/100))));
+		return Math.floor(actualdamage * (1 + totaldamage / 100 + parseInt(document.getElementById('bossDmg').value)/100) *
+			(1 + ((parseInt(document.getElementById('critRate').value) / 100) * ((parseInt(document.getElementById('critDmg').value) + 35) / 100))));
 	}
 
 	function calcRange () {
-		var ad = actualDamage();
+		var ad = actualDamage("current");
+		var ade = actualDamage("estimated");
 		var td = totalDamage();
 		var upRange = upperRange(ad, td);
+		var upRangeEst = upperRange(ade, td);
 		var lowRange = lowerRange(upRange);
-		var upCritRange = critDamage(ad, td);
-		var lowCritRange = lowerRange(upCritRange);
 		var upBossRange = bossAndCritDamage(ad, td);
+		var upBossRangeEst = bossAndCritDamage(ade, td);
 		var lowBossRange = lowerRange(upBossRange);
-		//var onepercent = percentStat();
+
 		document.getElementById('resultRange').innerHTML = finalDamage(lowRange) + " ~ " + finalDamage(upRange);
-		document.getElementById('critRange').innerHTML = finalDamage(lowCritRange) + " ~ " + finalDamage(upCritRange);
 		document.getElementById('bossRange').innerHTML = finalDamage(lowBossRange) + " ~ " + finalDamage(upBossRange);
-		//document.getElementById('oneper').innerHTML = onepercent;
+		document.getElementById('oneper').innerHTML = finalDamage(upRangeEst - upRange);
+		document.getElementById('oneperboss').innerHTML = finalDamage(upBossRangeEst - upBossRange);
+		document.getElementById('oneperstat').innerHTML = Math.floor(parseInt(document.getElementById('estmainstat').value) * 0.01);
+		
 	}
 
 	// getting xenon stat value stuff
@@ -43,25 +52,21 @@
 		var xenonStat = document.getElementById('xenonStat');
 		var kocExpert = document.getElementById('kocExpert');
 		var kocExpertLabel = document.getElementById('kocLabel');
-		regularStat.style.display = "none";
-		xenonStat.style.display = "none";
+		//regularStat.style.display = "none";
+		//xenonStat.style.display = "none";
 		kocExpert.style.display = "none";
 		kocExpertLabel.style.display = "none";
 		if (classSelection == 'xenon'){
-			xenonStat.style.display = "";
+			//xenonStat.style.display = "";
 		} else if (classSelection == 'blazewizstaff' || classSelection == 'blazewizwand' ||
-			classSelection == 'dawnwarrior1hs' || classSelection == 'dawnwarrior2hs' ||
-			classSelection == 'nightwalker' || classSelection == 'windarcher') {
+			classSelection == 'dawnwarrior1hs' || classSelection == 'dawnwarrior2hs' || classSelection == 'mihile' ||
+			classSelection == 'nightwalker' || classSelection == 'thunderbreaker' || classSelection == 'windarcher') {
 			kocExpertLabel.style.display = "";
 			kocExpert.style.display = "";
-			regularStat.style.display = "";
+			//regularStat.style.display = "";
 		} else {	
-			regularStat.style.display = "";
+			//regularStat.style.display = "";
 		}
-	}
-
-	function critDamage(actualdamage, totaldamage){
-		return Math.floor(actualdamage*(1+totaldamage/100)*(1+((parseInt(document.getElementById('critRate').value)/100)*((parseInt(document.getElementById('critDmg').value) + 35)/100))));
 	}
 
 
@@ -87,21 +92,11 @@
 		return Math.ceil(upRange * masteryValue); //NOT SURE ABOUT ROUNDING
 	} 
 
-	// 1% of your stat = 
-	// calculate from the base? not from total
-	function percentStat () {
-		var mainstat = parseInt(document.getElementById('mainstat').value);
-		return (0.01 * mainstat);
-	}
-
 	//populate dropdowns
 	function populateMenus(){
-		var allLines = [document.getElementById('weaponLines'), document.getElementById('secondaryLines'), document.getElementById('emblemLines'), document.getElementById('gloveLines')];
-		var inputLines = [wepsecLines, wepsecLines, wepsecLines, gloveLines];
-		/*var wepLines = document.getElementById('weaponLines');
-		var secLines = document.getElementById('secondaryLines');
-		var embLines = document.getElementById('emblemLines');
-		var gloLines = document.getElementById('gloveLines');*/
+		var allLines = [document.getElementById('weaponLines'), document.getElementById('secondaryLines'),
+			document.getElementById('emblemLines'), document.getElementById('gloveLines'), document.getElementById("innerability")];
+		var inputLines = [wepsecLines, wepsecLines, wepsecLines, gloveLines, iaLines];
 
 		for(var i = 0; i < allLines.length; i++){
 			var currentLines = allLines[i].getElementsByTagName('select');
@@ -131,6 +126,10 @@
 	function totalAttack () {
 		var totalATT = 0;
 		var totalPercentATT = 0;
+		var wepLines = document.getElementById("weaponLines").getElementsByTagName("select");
+		var secLines = document.getElementById("secondaryLines").getElementsByTagName("select");
+		var embLines = document.getElementById("emblemLines").getElementsByTagName("select");
+		var iaLines = document.getElementById("innerability").getElementsByTagName("select");
 
 		// attack from equips, set bonuses, other sources 
 		var equipAtt = document.getElementById('equipAtt');
@@ -139,20 +138,16 @@
 		for (var i = 0; i < equipName.length; i++) {
 			totalATT = totalATT + parseInt(equipName[i].value);
 		}
-
+		
 		var setBonusAtt = document.getElementById('setbonusAtt');
-		var setBonus = setBonusAtt.getElementsByTagName('input');
+		var setBonusDiv = setBonusAtt.getElementsByTagName('div');
+		var setBonus = divToInputArray(setBonusDiv);
 		for (var i = 0; i < setBonus.length; i++) {
-			totalATT = totalATT + parseInt(setBonus[i].value);
+			if(setBonus[i].type == "number"){
+				totalATT = totalATT + parseInt(setBonus[i].value);
+			}
 		}
-
-		// total % att (emblem/secondary/weapon);
-		/*var percentAtt = document.getElementById('percentAtt');	
-		var pAtt = percentAtt.getElementsByTagName('input');
-		for (var i = 0; i < pAtt.length; i++) {
-			totalPercentATT = totalPercentATT + parseInt(pAtt[i].value);
-		}*/
-
+		
 		// elemental expert (cygnus)
 		// + 10 because 10%
 		if (document.getElementById('kocExpert').checked) {
@@ -161,16 +156,52 @@
 		
 		// class passive skill %att
 		totalPercentATT = totalPercentATT + passiveStat[document.getElementById('class').value].pAtt;
-
+		
+		for (var i = 0; i< wepLines.length; i++){
+			if(wepLines[i].value === "pAtt"){
+				totalPercentATT = totalPercentATT + parseInt(document.getElementById("wepLineInput" + (i + 1)).value);
+			}
+		}
+		for (var i = 0; i< secLines.length; i++){
+			if(secLines[i].value === "pAtt"){
+				totalPercentATT = totalPercentATT + parseInt(document.getElementById("secLineInput" + (i + 1)).value);
+			}
+		}
+		for (var i = 0; i< embLines.length; i++){
+			if(embLines[i].value === "pAtt"){
+				totalPercentATT = totalPercentATT + parseInt(document.getElementById("embLineInput" + (i + 1)).value);
+			}
+		}
+		
 		// class passive skill att
 		totalATT = totalATT + passiveStat[document.getElementById('class').value].att;
 
 		// Inner Ability
-		totalATT = totalATT + parseInt(document.getElementById('innerAbility').value);	
+		for (var i = 0; i< iaLines.length; i++){
+			if(iaLines[i].value === "att"){
+				totalATT = totalATT + parseInt(document.getElementById("IALineInput" + (i + 1)).value);
+			}
+		}
 
 		// Att per 10 level
-		totalATT = totalATT + Math.floor(parseInt(document.getElementById('charLevel').value)/10) * parseInt(document.getElementById('attPer10').value);
-
+		var attPerTen = 0;
+		for (var i = 0; i< wepLines.length; i++){
+			if(wepLines[i].value === "attp10"){
+				attPerTen++;
+			}
+		}
+		for (var i = 0; i< secLines.length; i++){
+			if(secLines[i].value === "attp10"){
+				attPerTen++;
+			}
+		}
+		for (var i = 0; i< embLines.length; i++){
+			if(embLines[i].value === "attp10"){
+				attPerTen++;
+			}
+		}
+		totalATT = totalATT + Math.floor(parseInt(document.getElementById('charLevel').value)/10) * attPerTen;
+		
 		// Will of the Alliance
 		if (document.getElementById('alliance').checked) {
 			totalATT = totalATT + 5;
@@ -180,7 +211,7 @@
 		totalATT = totalATT + parseInt(document.getElementById('blessing').value);	
 		
 		// Other
-		totalATT = totalATT + parseInt(document.getElementById('other').value);	
+		//totalATT = totalATT + parseInt(document.getElementById('other').value);	
 
 		// hayato link
 		if (document.getElementById('H1').checked) {
@@ -189,31 +220,20 @@
 
 		// hidden reboot att
 		totalATT = totalATT + (5 * parseInt(document.querySelector('input[name = "reboot"]:checked').value)); 
-
+		
 		// round down
 		var totalWA = Math.floor((totalATT * (1 + totalPercentATT / 100)));
-		
 		return totalWA;
 	}
 
 	// calculates total base stat before % is included
 	function totalBaseStat () {
-		var totalPStat = 0;
+		var totalPStat = totalPercentStat();
 
 		// attack from equips, set bonuses, other sources 
 		var mainstat = parseInt(document.getElementById('mainstat').value);
 		var arcanestat = parseInt(document.getElementById('arcane').value); 
-
-		var equipPStat = document.getElementById('equipPStat');
-		var equipPStatDiv = equipPStat.getElementsByTagName('div');
-		var equipName = divToInputArray(equipPStatDiv);
-
-		for (var i = 0; i < equipName.length; i++) {
-			totalPStat = totalPStat + parseInt(equipName[i].value);
-		}
-		var xenonlink = parseInt(document.querySelector('input[name = "Xenonlink"]:checked').value);
-
-		totalPStat = totalPStat + (xenonlink * 5);
+		
 		return Math.ceil((mainstat-arcanestat)/(1+(totalPStat/100)));
 	}
 
@@ -225,6 +245,9 @@
 		var passiveSkillDmg = 0;
 		var rebootDmg = 0;
 
+		var wepLines = document.getElementById("weaponLines").getElementsByTagName("select");
+		var secLines = document.getElementById("secondaryLines").getElementsByTagName("select");
+		var embLines = document.getElementById("emblemLines").getElementsByTagName("select");
 
 		hyperDmg = parseInt(document.getElementById('hyperDmg').value);
 
@@ -234,9 +257,21 @@
 		var Kannalink = parseInt(document.querySelector('input[name = "Kannalink"]:checked').value);
 		linkDmg = linkDmg + linkSkills["demonAvenger" + DAlink].pDmg + linkSkills["kanna" + Kannalink].pDmg;
 		
-		var equips = document.getElementById('equippDmg').getElementsByTagName('input');	
-		for (var i =0; i < equips.length; i++) {
-			equipDmg = equipDmg + parseInt(equips[i].value);
+
+		for (var i = 0; i< wepLines.length; i++){
+			if(wepLines[i].value === "pDmg"){
+				equipDmg = equipDmg + parseInt(document.getElementById("wepLineInput" + (i + 1)).value);
+			}
+		}
+		for (var i = 0; i< secLines.length; i++){
+			if(secLines[i].value === "pDmg"){
+				equipDmg = equipDmg + parseInt(document.getElementById("secLineInput" + (i + 1)).value);
+			}
+		}
+		for (var i = 0; i< embLines.length; i++){
+			if(embLines[i].value === "pDmg"){
+				equipDmg = equipDmg + parseInt(document.getElementById("embLineInput" + (i + 1)).value);
+			}
 		}
 
 		rebootDmg = Math.floor((parseInt(document.getElementById('charLevel').value / 2)) * parseInt(document.querySelector('input[name = "reboot"]:checked').value));
@@ -244,13 +279,41 @@
 		if(document.getElementById('class').value == 'xenon'){
 			return xenonMultilateral[parseInt(document.getElementById('xenonMultilateralSelect').value)] + linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
 		}
-
 		return linkDmg + equipDmg + hyperDmg + passiveSkillDmg + rebootDmg;
+	}
+
+	function totalPercentStat(){
+		var totalPStat = 0;
+		var equipPStat = document.getElementById('equipPStat');
+		var equipPStatDiv = equipPStat.getElementsByTagName('div');
+		var equipName = divToInputArray(equipPStatDiv);
+
+		for (var i = 0; i < equipName.length; i++) {
+			totalPStat = totalPStat + parseInt(equipName[i].value);
+		}
+		var xenonlink = parseInt(document.querySelector('input[name = "Xenonlink"]:checked').value);
+
+		totalPStat = totalPStat + (xenonlink * 5);
+		return totalPStat;
 	}
 
 	// the inital upper range before any % damage or % attack
 	function upperRange (actualdamage, totalDmg) {
 		return Math.floor(actualdamage * (1+totalDmg/100));
+	}
+
+	// 1% of your stat = 
+	// calculate from the base? not from total
+	function xPercentStat (x) {
+		var result = 0;
+		var estmainstat = parseInt(document.getElementById('estmainstat').value);
+		var substat = parseInt(document.getElementById('substat').value);
+		var percentStat = totalPercentStat();
+		var mainstat = Math.floor(estmainstat * (1 + ((parseInt(percentStat) + parseInt(x)) / 100)));
+		var arcanestat = parseInt(document.getElementById('arcane').value); 
+
+		result = ((mainstat + arcanestat) * 4) + substat;
+		return result;
 	}
 
 	window.onload = function () {
