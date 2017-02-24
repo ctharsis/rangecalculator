@@ -52,23 +52,25 @@
 		var xenonStat = document.getElementById('xenonStat');
 		var kocExpert = document.getElementById('kocExpert');
 		var kocExpertLabel = document.getElementById('kocLabel');
-		//regularStat.style.display = "none";
-		//xenonStat.style.display = "none";
+		var xenonMulti = document.getElementById('xenonMulti');
+		regularStat.style.display = "none";
 		kocExpert.style.display = "none";
 		kocExpertLabel.style.display = "none";
+		xenonStat.style.display = "none";
+		xenonMulti.style.display = "none";
 		if (classSelection == 'xenon'){
-			//xenonStat.style.display = "";
+			xenonStat.style.display = "";
+			xenonMulti.style.display = "";
 		} else if (classSelection == 'blazewizstaff' || classSelection == 'blazewizwand' ||
 			classSelection == 'dawnwarrior1hs' || classSelection == 'dawnwarrior2hs' || classSelection == 'mihile' ||
 			classSelection == 'nightwalker' || classSelection == 'thunderbreaker' || classSelection == 'windarcher') {
 			kocExpertLabel.style.display = "";
 			kocExpert.style.display = "";
-			//regularStat.style.display = "";
+			regularStat.style.display = "";
 		} else {	
-			//regularStat.style.display = "";
+			regularStat.style.display = "";
 		}
 	}
-
 
 	function divToInputArray(array){
 		var resultArray = [];
