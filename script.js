@@ -321,6 +321,12 @@
 	window.onload = function () {
 		document.getElementById('calculate').onclick = calcRange;
 		document.getElementById('class').onchange = changeClass;
+		var PStat = divToInputArray(document.getElementById('equipPStat').getElementsByTagName('div'));
+		for (var i = 0; i < PStat.length; i++){
+			PStat[i].onchange = function(){
+				document.getElementById('estmainstat').value = totalBaseStat();
+			}
+		}
 		document.getElementById('mainstat').onchange = function(){
 			document.getElementById('estmainstat').value = totalBaseStat();
 		}
