@@ -49,26 +49,37 @@
 	function changeClass () {
 		var classSelection = document.getElementById('class').value;
 		var regularStat = document.getElementById('regularStat');
+	//	var regEquip1 = document.getElementById('regEquip1');
+	//	var regEquip2 = document.getElementById('regEquip2');		
 		var xenonStat = document.getElementById('xenonStat');
+	//	var xenonEquip = document.getElementById('xenonEquip');
 		var kocExpert = document.getElementById('kocExpert');
 		var kocExpertLabel = document.getElementById('kocLabel');
 		var xenonMulti = document.getElementById('xenonMulti');
 		regularStat.style.display = "none";
+	//	regEquip1.style.display = "none";
+	//	regEquip2.style.display = "none";
 		kocExpert.style.display = "none";
 		kocExpertLabel.style.display = "none";
 		xenonStat.style.display = "none";
 		xenonMulti.style.display = "none";
+	//	xenonEquip.style.display = "none";
 		if (classSelection == 'xenon'){
 			xenonStat.style.display = "";
 			xenonMulti.style.display = "";
+	//		xenonEquip.style.display = "";
 		} else if (classSelection == 'blazewizstaff' || classSelection == 'blazewizwand' ||
 			classSelection == 'dawnwarrior1hs' || classSelection == 'dawnwarrior2hs' || classSelection == 'mihile' ||
 			classSelection == 'nightwalker' || classSelection == 'thunderbreaker' || classSelection == 'windarcher') {
 			kocExpertLabel.style.display = "";
 			kocExpert.style.display = "";
 			regularStat.style.display = "";
+	//		regEquip1.style.display = "";
+	//		regEquip2.style.display = "";
 		} else {	
 			regularStat.style.display = "";
+	//		regEquip1.style.display = "";
+	//		regEquip2.style.display = "";
 		}
 	}
 
@@ -286,17 +297,30 @@
 
 	function totalPercentStat(){
 		var totalPStat = 0;
+		var classSelection = document.getElementById('class').value;
 		var equipPStat = document.getElementById('equipPStat');
 		var equipPStatDiv = equipPStat.getElementsByTagName('div');
 		var equipName = divToInputArray(equipPStatDiv);
 
-		for (var i = 0; i < equipName.length; i++) {
-			totalPStat = totalPStat + parseInt(equipName[i].value);
-		}
 		var xenonlink = parseInt(document.querySelector('input[name = "Xenonlink"]:checked').value);
-
-		totalPStat = totalPStat + (xenonlink * 5);
-		return totalPStat;
+		var actualXenonLink = xenonlink * 5;
+		if (classSelection == 'xenon') {
+			var stats = [0, 0, 0];
+			var pAll = parseInt(document.getElementById('xenonAll').value);
+			var pStr = parseInt(document.getElementById('xenonStr').value);
+			var pDex = parseInt(document.getElementById('xenonDex').value);
+			var pLuk = parseInt(document.getElementById('xenonLuk').value);
+			stats[0] = pAll + pStr;
+			stats[1] = pAll + pDex;
+			stats[2] = pAll + pLuk;
+			return stats;
+		} else {
+			for (var i = 0; i < equipName.length; i++) {
+				totalPStat = totalPStat + parseInt(equipName[i].value);
+			}
+			totalPStat = totalPStat + actualXenonLink;
+			return totalPStat;
+		}		
 	}
 
 	// the inital upper range before any % damage or % attack
@@ -313,7 +337,6 @@
 		var percentStat = totalPercentStat();
 		var mainstat = Math.floor(estmainstat * (1 + ((parseInt(percentStat) + parseInt(x)) / 100)));
 		var arcanestat = parseInt(document.getElementById('arcane').value); 
-
 		result = ((mainstat + arcanestat) * 4) + substat;
 		return result;
 	}
