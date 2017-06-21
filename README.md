@@ -1,5 +1,16 @@
 # Maplestory 1 Clean Range Calculator
 
+## 6/20/2017 Update
+Hello, for those of you that use this calculator or this page (if there are any), sorry for the lack of updates but we've been busy with school and graduation.
+However, since 5th job came out, our calculator has become irrelevant with the removal of the 2m-2m visual cap on the stat window, there has not been a need for this calculator anymore. 
+
+There are/were a few things that we would have loved to finish (ie: estimate how much stat you would gain if you got an additional 10% stat right now, include arcane force in damage calculations and more) but we've ran out of motivation as again, the in-game stat window already shows everything.
+
+You can still use the calculator as it is currently but there'll be no further updates.
+
+Thank you,
+Catharsis and Kiinguin
+
 ## To use go to this link: https://ctharsis.github.io/rangecalculator/calculator.html
 
 ## Currently supported classes:
